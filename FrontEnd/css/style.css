@@ -1,0 +1,45 @@
+/*style.css*/
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+/* ZONING */
+#block1{
+    background: #000;
+    height: 100vh;
+    width: 50vw;
+}
+#block2{
+    /* background:red; */
+    height: 100vh;
+    width: 50vw;
+}
+#sBlocka{
+    background:purple;
+    height: 50vh;
+    width: 100vw;
+}
+#sBlockb{
+    background:green;
+    height: 25vh;
+    width: 50vw;
+}
+#sBlockc{
+    background:yellow;
+    height: 25vh;
+    width: 50vw;
+}
+#sBlockd{
+    background:orange;
+    height: 25vh;
+    width: 50vw;
+}
+#sBlocke{
+    background:bisque;
+    height: 25vh;
+    width: 50vw;
+}
+/* fin zoning */
