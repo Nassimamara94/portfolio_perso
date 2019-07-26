@@ -9,6 +9,7 @@
 /* ZONING */
 #block1{
     background: #000;
+    /* background-image: url("Djurjura_enneige.jpg"); */
     height: 100vh;
     width: 50vw;
 }

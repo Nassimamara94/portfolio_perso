@@ -19,7 +19,7 @@
         <div class="row">
             <!-- à l'intérieur de ma row,on met un col-md-6 afin d'avoir la page d'accueil en 2 parties principaux-->
             <div class="col-md-6" id="block1">
-                <img src="image/523-723x723.jpg" alt="volcan">
+                <!-- <img src="image/523-723x723.jpg" alt="volcan"> -->
             </div>
             <div class="col-md-6" id="block2">
                 <div class="row">
