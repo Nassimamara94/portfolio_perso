@@ -1,0 +1,90 @@
+/*style.css*/
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+/* font général  */
+@font-face {
+        font-family :brushield;
+        src : url(../font/brushield/Brushield\ italic.ttf);
+}
+
+h1 {
+    font-family : Counter;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    background-color: black;
+}
+/* ZONING page d'accueil*/
+#block1{
+    /* background: #000; */
+    height: 100vh;
+    width: 50vw;
+    position:relative;
+} 
+p{
+  position:absolute;
+  top:40%;
+  font-size:45px;
+  font-family: 'brushield';
+  margin-left:60%;
+
+}
+/* partie A propos */
+#block2{
+    /* background:red; */
+    height: 100vh;
+    width: 50vw;
+}
+#sBlocka{
+    /* background:purple; */
+    background-image: url("../image/forest-931706_1920.jpg");
+    background-size: cover;
+    height: 50vh;
+    width: 100vw;
+}
+.about{
+    margin-left:40%;
+}
+/* fin partie A propos */
+
+#sBlockb{
+    /* background:green; */
+    background-image: url("https://cdn.pixabay.com/photo/2015/09/01/06/17/milky-way-916523__340.jpg");
+    background-size: cover;
+    height: 25vh;
+    width: 50vw;
+}
+#sBlockc{
+    /* background:yellow; */
+    background-image: url("https://cdn.pixabay.com/photo/2016/11/20/17/29/parachute-1843350__340.jpg");
+    background-size: cover;
+    height: 25vh;
+    width: 50vw;
+}
+#sBlockd{
+    /* background:orange; */
+    background-image: url("https://cdn.pixabay.com/photo/2016/01/08/18/00/antelope-canyon-1128815__340.jpg");
+    background-size: cover;
+    height: 25vh;
+    width: 50vw;
+}
+#sBlocke{
+    /* background:bisque; */
+    background-image: url("https://cdn.pixabay.com/photo/2016/12/14/13/07/creation-1906289_960_720.jpg");
+    background-size: cover;
+    height: 25vh;
+    width: 50vw;
+}
+.block{
+    margin-left:35%;
+    top:20px;
+}
+/* fin ZONING page d'accueil */
+
+/* Page A propos */
