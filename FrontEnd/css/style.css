@@ -8,8 +8,8 @@
 }
 /* ZONING */
 #block1{
-    background: #000;
-    /* background-image: url("Djurjura_enneige.jpg"); */
+    /* background: #000; */
+    background-image: url("http://www.algerie-monde.com/parcs-naturels/djurdjura/parc-national-djurdjura.jpg");
     height: 100vh;
     width: 50vw;
 }
