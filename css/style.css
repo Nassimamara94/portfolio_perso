@@ -11,23 +11,30 @@
         font-family :brushield;
         src : url(../font/brushield/Brushield\ italic.ttf);
 }
-
+header{
+    margin: 0;
+    padding:0;
+}
 h1 {
     font-family : Counter;
 }
 body{
     font-family: 'Roboto', sans-serif;
     color: white;
-    background-color: black;
+    /* background-color: black; */
 }
 /* ZONING page d'accueil*/
 #block1{
     /* background: #000; */
+    background-image: url("../image/Space_Debris-ESA.jpg");
+    background-size: cover;
     height: 100vh;
     width: 50vw;
     position:relative;
+    padding-left:0;
+    padding-right:0;
 } 
-p{
+h1{
   position:absolute;
   top:40%;
   font-size:45px;
@@ -40,6 +47,8 @@ p{
     /* background:red; */
     height: 100vh;
     width: 50vw;
+    padding-left:0;
+    padding-right:0;
 }
 #sBlocka{
     /* background:purple; */
@@ -55,7 +64,7 @@ p{
 
 #sBlockb{
     /* background:green; */
-    background-image: url("https://cdn.pixabay.com/photo/2015/09/01/06/17/milky-way-916523__340.jpg");
+    background-image: url("../image/milky-way-916523_1280.jpg");
     background-size: cover;
     height: 25vh;
     width: 50vw;
@@ -88,3 +97,15 @@ p{
 /* fin ZONING page d'accueil */
 
 /* Page A propos */
+
+main{
+    background-image: URL("../image/forest-931706_1920.jpg");
+    background-size: cover;
+}
+
+.navbar {
+    background-color: transparent;
+}
+.lorem{
+    height:800px;
+}

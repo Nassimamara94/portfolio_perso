@@ -19,31 +19,31 @@
         <div class="row">
             <!-- à l'intérieur de ma row,on met un col-md-6 afin d'avoir la page d'accueil en 2 parties principaux-->
             <div class="col-md-6" id="block1">
-                <img src="image/Space_Debris-ESA.jpg" alt="routes" style="height:930px;width:937px">
-            <p>Nassim Amara<br>
+                <!-- <img src="image/Space_Debris-ESA.jpg" alt="routes" style="height:966px;width:937px"> -->
+            <h1>Nassim Amara<br>
                Développeur web Junior<br>
                Bienvenue sur mon portfolio 
-            </p>
+            </h1>
             </div>
             <div class="col-md-6" id="block2">
                 <div class="row">
                     <div class="col-md-12" id="sBlocka">
-                        <p class="about">A Propos</p>
+                        <a href="about.php"target="_blank"> <h1 class="about">A Propos</h1></a>
                     </div>
                 </div>
                 <!-- je sépare une div en 4 partie -->
                 <div class="row">
                     <div class="col-md-6" id="sBlockb">
-                        <p class="block">Formation</p>
+                        <h1 class="block">Formation</h1>
                     </div>
                     <div class="col-md-6" id="sBlockc">
-                        <p class="block">Compétences</p>
+                        <h1 class="block">Competences</h1>
                     </div>
                     <div class="col-md-6" id="sBlockd">
-                        <p class="block">Projects</p>
+                        <h1 class="block">Projects</h1>
                     </div>
                     <div class="col-md-6" id="sBlocke">
-                        <p class="block">Contact</p>
+                        <h1 class="block">Contact</h1>
                     </div>
                 </div>
             </div>
