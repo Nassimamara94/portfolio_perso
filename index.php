@@ -19,7 +19,7 @@
         <div class="row">
             <!-- à l'intérieur de ma row,on met un col-md-6 afin d'avoir la page d'accueil en 2 parties principaux-->
             <div class="col-md-6" id="block1">
-                <img src="image/Space_Debris-ESA.jpg" alt="routes" style="height:885px;width:870px">
+                <img src="image/Space_Debris-ESA.jpg" alt="routes" style="height:885px;width:870px;">
             <p>Nassim Amara<br>
                Développeur web Junior<br>
                Bienvenue sur mon portfolio 
