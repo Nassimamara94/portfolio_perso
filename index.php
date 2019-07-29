@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- lien perso css-->
-    <link rel="stylesheet" href="../FrontEnd/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <!-- lien de mon icone-->
     <link rel="icon" href="https://img.icons8.com/ios/420/nfc-n-filled.png" type="image/png" />
 </head>
@@ -19,7 +19,7 @@
         <div class="row">
             <!-- à l'intérieur de ma row,on met un col-md-6 afin d'avoir la page d'accueil en 2 parties principaux-->
             <div class="col-md-6" id="block1">
-                <img src="image/Space_Debris-ESA.jpg" alt="routes" style="height:885px;width:870px;">
+                <img src="image/Space_Debris-ESA.jpg" alt="routes" style="height:930px;width:937px">
             <p>Nassim Amara<br>
                Développeur web Junior<br>
                Bienvenue sur mon portfolio 
