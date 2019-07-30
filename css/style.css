@@ -34,6 +34,7 @@ body{
     padding-left:0;
     padding-right:0;
     background-position: center;
+    
 } 
 h1{
   position:absolute;
@@ -41,6 +42,7 @@ h1{
   font-size:45px;
   font-family: 'brushield';
   margin-left:60%;
+  right:12%;
 }
 .glow {
   font-size: 50px;
@@ -49,6 +51,10 @@ h1{
   -webkit-animation: glow 1s ease-in-out infinite alternate;
   -moz-animation: glow 1s ease-in-out infinite alternate;
   animation: glow 1s ease-in-out infinite alternate;
+}
+
+h1 .glow{
+    margin-left:0;
 }
 
 @-webkit-keyframes glow {
