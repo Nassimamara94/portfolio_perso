@@ -34,6 +34,7 @@ body{
     padding-left:0;
     padding-right:0;
     background-position: center;
+    
 } 
 h1{
   position:absolute;
@@ -51,6 +52,8 @@ h1{
   animation: glow 1s ease-in-out infinite alternate;
   margin-left: 40%;
 }
+
+
 
 @-webkit-keyframes glow {
   from {
