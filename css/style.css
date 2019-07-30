@@ -42,7 +42,6 @@ h1{
   font-size:45px;
   font-family: 'brushield';
   margin-left:60%;
-  right:12%;
 }
 .glow {
   font-size: 50px;
@@ -54,9 +53,7 @@ h1{
   margin-left: 40%;
 }
 
-h1 .glow{
-    margin-left:0;
-}
+
 
 @-webkit-keyframes glow {
   from {
