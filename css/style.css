@@ -41,7 +41,6 @@ h1{
   font-size:45px;
   font-family: 'brushield';
   margin-left:60%;
-  /* right:12%; */
 }
 .glow {
   font-size: 50px;
@@ -59,7 +58,7 @@ h1{
   }
   
   to {
-    text-shadow: 0 0 20px #000000, 0 0 30px #000000, 0 0 40px #000000, 0 0 50px #000000, 0 0 60px #000000, 0 0 70px #000000, 0 0 80px #000000;
+    text-shadow: 0 0 20px #0008CB, 0 0 30px #0008CB, 0 0 40px #0008CB, 0 0 50px #0008CB, 0 0 60px #0008CB, 0 0 70px #0008CB, 0 0 80px #0008CB;
   }
 }
 /* partie A propos */
