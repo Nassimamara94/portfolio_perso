@@ -26,13 +26,14 @@ body{
 /* ZONING page d'accueil*/
 #block1{
     /* background: #000; */
-    background-image: url("../image/Space_Debris-ESA.jpg");
-    background-size: cover;
+    /* background-image: url("../image/Space_Debris-ESA.jpg"); */
+    /* background-size: cover; */
     height: 100vh;
     width: 50vw;
     position:relative;
     padding-left:0;
     padding-right:0;
+    background-position: center;
 } 
 h1{
   position:absolute;
@@ -40,7 +41,24 @@ h1{
   font-size:45px;
   font-family: 'brushield';
   margin-left:60%;
+}
+.glow {
+  font-size: 50px;
+  /* color: rgb(255, 255, 255); */
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
 
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px rgb(0, 0, 0), 0 0 20px rgb(0, 0, 0), 0 0 30px rgb(0, 0, 0), 0 0 40px rgb(0, 0, 0) 0 50px rgb(0, 0, 0), 0 0 60px rgb(0, 0, 0) 0 70px rgb(0, 0, 0);
+  }
+  
+  to {
+    text-shadow: 0 0 20px #000000, 0 0 30px #000000, 0 0 40px #000000, 0 0 50px #000000, 0 0 60px #000000, 0 0 70px #000000, 0 0 80px #000000;
+  }
 }
 /* partie A propos */
 #block2{
@@ -71,21 +89,21 @@ h1{
 }
 #sBlockc{
     /* background:yellow; */
-    background-image: url("https://cdn.pixabay.com/photo/2016/11/20/17/29/parachute-1843350__340.jpg");
+    background-image: url("../image/codage-l-application-par-le-développeur-de-programmeur-code-de-programmation-abstrait-fond-d-écran.jpg");
     background-size: cover;
     height: 25vh;
     width: 50vw;
 }
 #sBlockd{
     /* background:orange; */
-    background-image: url("https://cdn.pixabay.com/photo/2016/01/08/18/00/antelope-canyon-1128815__340.jpg");
+    background-image: url("../image/antelope-canyon-1128815_1280.jpg");
     background-size: cover;
     height: 25vh;
     width: 50vw;
 }
 #sBlocke{
     /* background:bisque; */
-    background-image: url("https://cdn.pixabay.com/photo/2016/12/14/13/07/creation-1906289_960_720.jpg");
+    background-image: url("../image/parachute-1843350_1280.jpg");
     background-size: cover;
     height: 25vh;
     width: 50vw;
@@ -98,7 +116,7 @@ h1{
 
 /* Page A propos */
 
-main{
+.main_about{
     background-image: URL("../image/forest-931706_1920.jpg");
     background-size: cover;
 }
@@ -109,3 +127,32 @@ main{
 .lorem{
     height:800px;
 }
+a{
+    color:white;
+}
+/* Page Formation */
+.main_formation{
+    background-image: URL("../image/milky-way-916523_1280.jpg");
+    background-size: cover;
+}
+/* Page Competence */
+.main_competence{
+    background-image: URL("../image/codage-l-application-par-le-développeur-de-programmeur-code-de-programmation-abstrait-fond-d-écran.jpg");
+    background-size: cover;
+}
+/* Page Projects */
+.main_projects{
+    background-image: URL("../image/antelope-canyon-1128815_1280.jpg");
+    background-size: cover;
+}
+/* Page Contact */
+.main_contact{
+    background-image: URL("../image/parachute-1843350_1280.jpg");
+    background-size: cover;
+}
+hr{
+    height: 4px;
+    cursor: default;
+}
+
+

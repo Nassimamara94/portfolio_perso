@@ -32,7 +32,7 @@ require_once "init.php"
 <!--début HEADER -->
 <header>
 
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+    <!-- <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar bg-danger">
         <a class="navbar-brand" href="#"><strong>A propos</strong></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -53,7 +53,32 @@ require_once "init.php"
                 </li>
             </ul>
         </div>
-    </nav>
+    </nav> -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <a class="navbar-brand" href="#">Hidden brand</a>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+  <!-- Navbar content -->
+
+
 </header> <!--Fin HEADER -->
 
 <main> <!-- menu principal -->
