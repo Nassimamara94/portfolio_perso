@@ -33,8 +33,7 @@ body{
     position:relative;
     padding-left:0;
     padding-right:0;
-    background-position: center;
-    
+    background-position: center;  
 } 
 h1{
   position:absolute;
@@ -155,7 +154,6 @@ a{
     background-size: cover;
 }
 hr{
-    height: 4px;
     cursor: default;
 }
 

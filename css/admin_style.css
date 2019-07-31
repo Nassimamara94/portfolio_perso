@@ -1,8 +1,81 @@
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
 /* page connexion */
 body{
-    background-image: url("../image/background1.jpg");
-    /* background-size: cover; */
+    background-image: url("../image/blue-259458_1280.jpg");
+    background-size: cover;
 }
 h1{
-    color:red;
+    color:rgb(15, 240, 202);
+}
+#contact{
+  background-size: 1472px;
+}
+
+.formulaire {
+  width: 642px;
+  margin: auto;
+  max-width: 100%;
+  margin-top: -4px;
+  padding: 37px;
+  box-shadow:0 0 20px 1px rgba(0, 0, 0, 1);
+  position: relative;
+}
+
+.formulaire_input, .formulaire_label, .formulaire_submit {
+  display: block;
+  width: 100%;
+  font-size: 1.3em;
+  color: white;
+  font-family: monospace;
+}
+
+.formulaire_input {
+  padding: 20px;
+  border: 1px solid rgba(0,0,0,0.3);
+  margin-bottom: 40px;
+  background: rgba(0,0,0,0.1);
+}
+
+.formulaire_label {
+  padding-left: 15px;
+  position: absolute;
+  margin-top: -85px;
+  z-index: -20px;
+  transition: all 0.3s;
+  color: white;
+  animation: shake 0.3s;
+}
+
+.formulaire_submit {
+  background: transparent;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.formulaire_input:focus + .formulaire_label {
+  margin-top: -135px;
+}
+
+.fijar {
+  margin-top: -135px;
+}
+
+.formulaire{
+  font-size: 15px;
+  color: red;
+}
+
+.validation {
+  display:none;
+  margin: 0 0 10px;
+  font-weight:400;
+  font-size:13px;
+  color: green;
 }

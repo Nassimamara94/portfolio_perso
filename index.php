@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -11,7 +12,7 @@
     <!-- lien perso css-->
     <link rel="stylesheet" href="css/style.css">
     <!-- lien de mon icone-->
-    <link rel="icon" href="https://img.icons8.com/ios/420/nfc-n-filled.png" type="image/png" />
+    <link rel="icon" href="https://img.icons8.com/ios/420/nfc-n-filled.png" type="image/png"/>
 </head>
 <body>
     <div class="container-fluid">
@@ -23,7 +24,7 @@
             <h1 class="glow">Nassim Amara<br>
                Développeur web Junior<br>
                Bienvenue sur mon portfolio 
-             <a href="../portfolio_perso/admin/connexion.php"><hr class="bg-transparent"></a>
+             <a href="../portfolio_perso/admin/connexion.php"target="_blank"><hr class="bg-dark"></a>
             </h1>
             </div>
             <div class="col-md-6" id="block2">
