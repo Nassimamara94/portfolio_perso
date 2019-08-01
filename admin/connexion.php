@@ -1,6 +1,27 @@
 <?php
 require_once("../include/init.php");
-?>
+// Je me connecte à ma BDD
+// a-j'appel ma table admin
+$resultat=$bdd->query("SELECT * FROM admin");
+// b- je manipule les objets de ma table admin
+$admin=$resultat->fetch(PDO::FETCH_ASSOC);
+// je fais les vérification du form et des champs 
+extract($_POST);
+
+if($_POST){
+  if(empty($u_pseudo) && $u_pseudo !== $admin['u_pseudo'] && empty($u_password) && $u_password !== $admin['u_password'] 
+  && $admin['statut'] !== 1 ){
+
+    
+    header('Location:https://getbootstrap.com/');
+  }else{
+    header('Location:accueil_admin.php');
+  }
+} // FIN if($_POST)
+
+?> 
+
+<!-- contenu HTML-->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -20,58 +41,33 @@ require_once("../include/init.php");
 
 
 
-<!-- <div class="container">
-<form class="col-md-4 offset-md-4" method="post" action="" class="col-md-4 offset-md-4 text-center">
-    <div class="form-group">
-        <label for="email_pseudo">Email ou pseudo</label>
-        <input type="text" class="form-control" id="email_pseudo" name="email_pseudo" placeholder="Enter email_pseudo">
-    </div>
-    <div class="form-group">
-        <label for="mdp">Mot De Passe</label>
-        <input type="text" class="form-control" id="mdp" name="mdp" placeholder="Password">
-    </div>
+   <h1 class="display-4 text-center">Identification</h1><br><br>
 
+   <!-- Je réalise un formulaire de connexion avec les champs pseudo/mot de passe/confirmer mot de passe bouton submit -->
 
-    <button type="submit" class="btn btn-primary col-md-12">Connexion</button>
-</form> -->
+   <!-- Les balises <form> sert à dire que c'est un formulaire
+on lui demande de faire fonctionner la page connexion.php une fois le bouton "Connexion" cliqué
+on lui dit également que c'est un formulaire de type "POST" -->
+<div class="container">
+  <form class="col-md-4 offset-md-4" method="post" class="col-md-4 offset-md-4 text-center">
 
-<section id="contact">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase ecart_titre">Contactez-moi</h2>
-          </div>
+<div class="form-group">
+           <label for="pseudo" class="text-white">pseudo</label>
+          <input type="text" class="form-control" style="background-color:transparent" id="prenom" name="u_pseudo" placeholder="Enter prenom"> 
         </div>
-        <div class="row">
-          <div class="col-lg-12">
-            <form action="index.php" class="formulaire_connexion" method="post">
 
-              <p class="formulaire"></p>
-              <input type="text" class="formulaire_connexion" id="nom" name="nom" value="">
-              <label for ="" class="formulaire_label">Nom</label>
-              <div class="validation"></div>
+  <!-- on met un type="password" afin que le text soit illisible à l'écran -->
+     <div class="form-group">
+      <label for="mdp" class="text-white">mot de passe</label>
+      <input type="password" class="form-control" style="background-color:transparent" id="mdp" name="u_password" placeholder="Enter password">
+  </div><br>
 
-              <input type="text" class="formulario_input" name="prenom">
-              <label for ="" class="formulaire_label">Prénom</label>
-              <div class="validation"></div>
+<!-- type="submit" sera un bouton pour valider le formulaire name="nom de l'input" sert à le reconnaitre une fois le bouton submit cliqué, pour le code PHP
+ -->
+  <button type="submit" name="connexion" class="btn btn-secondary col-md-12" style="background-color:transparent" >Connexion</button>
 
-              <p class="formulaire"></p>
-              <input type="email" class="formulaire_input" id="email" name="email" value="">
-              <label for ="" class="formulaire_label">E-mail</label>
-              <div class="validation"></div>
-
-              <p class="formulaire"></p>
-              <input type="text" class="formulaire_input" id="message" name="message" value="">
-              <label for ="" class="formulaire_label">Commentaire</label>
-              <div class="validation"></div>
-
-              <input type="submit" class="formulaire_submit">
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-</div>
+  </form>
+  </div>
 
 </body>
 
