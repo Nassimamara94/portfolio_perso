@@ -1,5 +1,6 @@
+<!-- j'appel la page init(connexion à la BDD) -->
 <?php
-require_once "init.php"
+require_once("init.php");
 ?>
 
 <!DOCTYPE html>
@@ -25,21 +26,17 @@ require_once "init.php"
     <title>portFolio - Nassim-Amara</title>
 </head>
 
-<!-- prend toute l'espace de la page -->
-<header class="container-fluid">
-
+<body>
 
 <!--début HEADER -->
-<header>
-
-<header>
-          <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container">
-      <a class="navbar-brand" href="#"><strong>Navbar</strong></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+<header class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#"><strong>Navbar</strong></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+          </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
@@ -53,14 +50,6 @@ require_once "init.php"
           </li>
         </ul>
       </div>
-    </div>
-  </nav>
-
-</header>
-
-  <!-- Navbar content -->
-
-
-</header> <!--Fin HEADER -->
-
-<main> <!-- menu principal -->
+      </div>
+    </nav>
+</header> <!-- Fin Header -->

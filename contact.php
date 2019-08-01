@@ -1,58 +1,75 @@
 <!-- j'appelle les pages init (connexion à la bdd) et le header -->
 <?php
 require_once("include/init.php");
-require_once("include/header.php");
+// require_once("include/header.php");
 ?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-<main class="main_contact">
+    <!-- CDN Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <!-- CDN font-awesome -->
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
-<div class="container">
+    <!-- lien perso css-->
+    <link rel="stylesheet" href="css/style.css">
 
-    <!-- <form id="contact" method="post">
-    	<fieldset><legend>Vos coordonnées</legend>
-    		<p><label for="nom">Nom :</label><input type="text" id="nom" name="nom" /></p>
-    		<p><label for="email">Email :</label><input type="text" id="email" name="email" /></p>
-    	</fieldset>
-     
-    	<fieldset><legend>Votre message :</legend>
-    		<p><label for="objet">Objet :</label><input type="text" id="objet" name="objet" /></p>
-    		<p><label for="message">Message :</label><textarea id="message" name="message" cols="30" rows="8"></textarea></p>
-    	</fieldset>
-     
-    	<div style="text-align:center;"><input type="submit" name="envoi" value="Envoyer le formulaire !" /></div>
-    </form> -->
+    <!-- lien de mon icone-->
+    <link rel="icon" href="https://img.icons8.com/ios/420/nfc-n-filled.png" type="image/png"/>
 
-
-
-    
-        <!-- Champ email -->
-        <div class="container">
-         <h1 class="display-4 text-center"> Formulaire de Contact </h1> <br>
-       
-        <form class="col-md-4 offset-md-4" method="post" action="">
-        <div class="form-group">
-           <label for="objet">Objet</label>
-          <input type="objet" class="form-control" id="objet" name="objet" placeholder="Enter objet">
-    </div>
-     <div class="form-group">
-           <label for="email">Email</label>
-          <input type="text" class="form-control" id="email" name="email" placeholder="Enter email">
-    </div>
-     <div class="form-group">
-           <label for="message">Message</label>
-          <input type="text" class="form-control" id="message" name="message" row="3" placeholder="Enter message">
-    </div>
+    <title>portFolio - Nassim Amara</title>
+</head>
 
 
-    <button type="submit" name="submit" class="col -md-12 btn btn-primary mb-4">Submit</button>
-     </div>
+<body id="contact">
+
+<!-- <main class="container">
+
+<div class="row">
+  <h1 class="display-4text-center">Formulaire de Contact </h1>
 </div>
 
 
-</main>
+</main> -->
 
-<!-- j'appelle la page footer -->
+<!-- <main class="main_contact">
+  <div class="row">
+    <h1 class="display-4 text-center"> Formulaire de Contact </h1>
+
+  </div>
+  
+   
+    <div class="container">
+       
+      <form class="col-md-4 offset-md-4" method="post" >
+        <div class="form-group">
+            <label for="objet">Objet</label>
+            <input type="objet" class="form-control" id="objet" name="objet" placeholder="Enter objet">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" id="email" name="email" placeholder="Enter email">
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <input type="text" class="form-control" id="message" name="message" row="3"placeholder="Enter message">
+          </div>
+          
+
+          <button type="submit" name="submit" class="col -md-12 btn btn-primary mb-4">Submit</button>
+        </form>
+    </div> FIN .container
+    
+  
+j'appelle la page footer -->
+</body>
+</html>
 <?php 
-require_once "include/footer.php"
+require_once("include/footer.php");
 ?>
