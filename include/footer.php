@@ -1,15 +1,35 @@
 </section>
- <footer class="bg-dark text-white text-center p-3 fixed-bottom">
-        &copy; 2019 - GL - Pas touche c'est mon site à moi
-        <a href="https://www.linkedin.com/in/nassim-amara-386791177/"><i class="fab fa-linkedin"></i></a>
-        
-        <!-- <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum mollitia in, voluptate amet, sunt fugit laborum placeat ea corrupti dolore unde neque. Aliquid harum commodi saepe dolorum libero nemo cupiditate!
-        </p> -->
-        </footer>
+<!-- Footer -->
+<footer class="footer">
+   <div class="row">
+    <div class="col-md-12 text-center pt-3">
+          Copyright &copy; Nassim Amara 2019  <a href="https://amaranassim.000webhostapp.com/
+" target="_blank">Nassim Amara </a>
+    </div>
 
+     <div class="col-lg-2 text-center col-sm-12 col-md-12">
+          <ul class="list-inline social-buttons">
+            <li class="list-inline-item">
+              <a href="https://github.com/Nassimamara94" class="social_network" target="_blank">
+              <i class="fab fa-github"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://www.facebook.com/nassim.amara.5496" class="social_network" target="_blank" title="Mon profil Facebook, s'ouvre dans un nouvel onglet">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://www.linkedin.com/in/nassim-amara-386791177/" class="social_network" target="_blank" title="Mon profil Linkedin, s'ouvre dans un nouvel onglet" >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </li>
+          </ul>
+      </div>
+   </div> <!-- fin row -->       
+       
 
-
+ 
 
 <!-- Footer -->
     <!-- Optional JavaScript -->
@@ -22,5 +42,5 @@
 
 
 
-  </body>
+</body>
 </html>

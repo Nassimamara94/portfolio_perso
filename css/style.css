@@ -16,9 +16,6 @@ header{
     margin: 0;
     padding:0;
 }
-h1 {
-    font-family : Counter;
-}
 body{
     font-family: 'Roboto', sans-serif;
     color: white;
@@ -36,14 +33,17 @@ body{
     padding-right:0;
     background-position: center;  
 } 
-h1{
+.about{
   position:absolute;
   top:40%;
   font-size:45px;
   font-family: 'brushield';
-  margin-left:20%;
+  margin-left: 40%;
+  font-family :brushield;
 }
 .glow {
+  position:absolute;
+  top:40%;
   font-size: 50px;
   /* color: rgb(255, 255, 255); */
   text-align: center;
@@ -51,6 +51,7 @@ h1{
   -moz-animation: glow 1s ease-in-out infinite alternate;
   animation: glow 1s ease-in-out infinite alternate;
   margin-left: 40%;
+  font-family :brushield;
 }
 
 
@@ -79,8 +80,11 @@ h1{
     height: 50vh;
     width: 100vw;
 }
-.about{
+.contact_title{
+    position:absolute;
+    top:40%;
     margin-left:40%;
+    font-family :brushield;
 }
 /* fin partie A propos */
 
@@ -155,51 +159,12 @@ a{
     background-size: cover;
     height:100vh;
 }
+.formulaire_title{
+     font-family :brushield;
+}
 hr{
     cursor: default;
 }
-
-/* 
-.body {
-margin:0;  
+.footer{
+    background-color:rgb(0, 65, 139);
 }
-
-#red{ 
-  border-top: solid #A44B4B;
-  border-width: 15px;
-  background: #2E2E2E; 
-  position:absolute; 
-  bottom:0; 
-  height:100%;
-  width:100%; 
-  height:180px; 
-}
-
-.text {
-  color: #424242;
-  font-family: Lato;
-  font-size: 60px;
-  text-align: center;
-  margin-top: 50px;
-}
-
-.text2 {
-  color: #424242;
-  font-family: Lato;
-  font-size: 20px;
-  text-align: center;
-  margin-top: -50px;
-}
-
-.text3 {
-  color: #424242;
-  font-family: Lato;
-  font-size: 20px;
-  text-align: center;
-  margin-top: -20px;
-  float: center;
-}
-
-#page-footer {
-  display: none !important;
-} */

@@ -53,18 +53,18 @@ on lui dit également que c'est un formulaire de type "POST" -->
 
 <div class="form-group">
            <label for="pseudo" class="text-white">pseudo</label>
-          <input type="text" class="form-control" style="background-color:transparent" id="prenom" name="u_pseudo" placeholder="Enter prenom"> 
+          <input type="text" class="form-control" style="background-color:white" id="prenom" name="u_pseudo" placeholder="Enter prenom"> 
         </div>
 
   <!-- on met un type="password" afin que le text soit illisible à l'écran -->
      <div class="form-group">
       <label for="mdp" class="text-white">mot de passe</label>
-      <input type="password" class="form-control" style="background-color:transparent" id="mdp" name="u_password" placeholder="Enter password">
+      <input type="password" class="form-control" style="background-color:white" id="mdp" name="u_password" placeholder="Enter password">
   </div><br>
 
 <!-- type="submit" sera un bouton pour valider le formulaire name="nom de l'input" sert à le reconnaitre une fois le bouton submit cliqué, pour le code PHP
  -->
-  <button type="submit" name="connexion" class="btn btn-secondary col-md-12" style="background-color:transparent" >Connexion</button>
+  <button type="submit" name="connexion" class="btn btn-secondary col-md-12" style="background-color:#ffffff31" >Connexion</button>
 
   </form>
   </div>

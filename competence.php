@@ -12,6 +12,9 @@ require_once("include/header.php");
 <div class="competence">
 
 
+       <!-- <div class=" offset-lg-3 col-lg-2 CV  col-sm-12 col-md-12 text-center">
+
+               <a class="btn btn-light btn-primary   " href="/public/img/CVYvette.pdf" target="_blank" >Telecharger mon CV</a> -->
 <p>
   Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vero hic? Tempore eos a voluptatibus porro illum inventore voluptas delectus soluta, quam at aperiam illo, unde ipsam sint, excepturi impedit.
 </p>

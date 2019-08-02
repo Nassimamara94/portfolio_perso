@@ -30,7 +30,7 @@ require_once("init.php");
 
 <!--début HEADER -->
 <header class="container-fluid">
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-transparent">
       <div class="container">
         <a class="navbar-brand" href="#"><strong>Navbar</strong></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
