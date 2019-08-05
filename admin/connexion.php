@@ -5,19 +5,36 @@ require_once("../include/init.php");
 $resultat=$bdd->query("SELECT * FROM admin");
 // b- je manipule les objets de ma table admin
 $admin=$resultat->fetch(PDO::FETCH_ASSOC);
-// je fais les vérification du form et des champs 
+// Importe les variables dans la table des symboles 
 extract($_POST);
+$error ='';
+$error_pseudo ='';
+// je fais les vérification du form et des champs 
 
-if($_POST){
-  if(empty($u_pseudo) && $u_pseudo !== $admin['u_pseudo'] && empty($u_password) && $u_password !== $admin['u_password'] 
-  && $admin['statut'] !== 1 ){
+if($_POST)
+{
+  if(empty($u_pseudo)|| $u_pseudo !== $admin['u_pseudo'] && empty($u_password) || $u_password !== $admin['u_password'] 
+  && $admin['statut'] !== 1 )
+  {
 
-    
-    header('Location:https://getbootstrap.com/');
+    /*si je rentre ds la condition if-> redirect° vers la page d'index */
+    header('Location:https://www.google.fr');
   }else{
+    //si je ne rentre pas ds la condition du if -> redirect° espace admin
     header('Location:accueil_admin.php');
   }
+
 } // FIN if($_POST)
+
+
+
+
+
+
+
+
+
+
 
 ?> 
 

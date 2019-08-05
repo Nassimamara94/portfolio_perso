@@ -14,19 +14,34 @@
     <title>Accueil Admin</title>
 </head>
 <body>
-  <section class="accueil_admin_image">
+ 
+<div class="container">
 
+<h1 class="text-center text-primary alert alert-warning mt-5">Accueil Admin</h1>
 
-<h1>accueil-admin</h1>
-<table class="table table-bordered text-center tab1"><tr>
+<section class="tabledesmatieres offset-4" >
 
-    
-
-
-
-</tr>
+<div class="card m-10 card_admin" style="width: 18rem;box-shadow:10px 10px 10px black;">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <a href="gestion_projects.php">Gestion Projets</a>
+    </li>
+    <li class="list-group-item">
+      <a href="gestion_formation.php">Gestion Formation</a>
+    </li>
+    <li class="list-group-item">
+      <a href="gestion_competence.php">Gestion Compétence</a>
+    </li>
+    <li class="list-group-item">
+      <a href="gestion_professional_experience.php">Gestion Expériences Professionnel</a>
+    </li>
+    <li class="list-group-item">
+      <a href="gestion_langage.php">Gestion Langages</a>
+    </li>
+  </ul>
+</div>
 </section>
 
-    
+</div> <!-- fin container -->
 </body>
 </html>

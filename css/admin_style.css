@@ -29,3 +29,7 @@ h1{
 .accueil_admin_image{
     background-image: url("../image/stars-1869692_1920.jpg");
 }
+
+.card_admin{
+    margin-top: 10vh;
+}
