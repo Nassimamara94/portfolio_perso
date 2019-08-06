@@ -70,7 +70,7 @@ on lui dit également que c'est un formulaire de type "POST" -->
 
 <div class="form-group">
            <label for="pseudo" class="text-white">pseudo</label>
-          <input type="text" class="form-control" style="background-color:white" id="prenom" name="u_pseudo" placeholder="Enter prenom"> 
+          <input type="text" class="form-control" style="background-color:white" id="pseudo" name="u_pseudo" placeholder="Enter pseudo"> 
         </div>
 
   <!-- on met un type="password" afin que le text soit illisible à l'écran -->

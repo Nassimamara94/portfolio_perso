@@ -1,5 +1,5 @@
 <?php
-require_once "../include/init.php";// 1 - CONNEXION BD
+require_once "../include/init.php";// 1 - CONNEXION BDD
 
 // II - je m'occupe du traitement PHP
 
@@ -35,18 +35,16 @@ $contenu ='';
 $resultat= $bdd->query('SELECT * FROM projects'); 
 
 while($projects = $resultat ->fetch(PDO::FETCH_ASSOC)){ // tant que j'ai des données dans ma table, ma boucle affiche le resultat
+    $contenu .= '<a href="formulaire_projects.php"><i class="fas fa-plus-circle"></i></a>';
     $contenu .= '<tr>';
-    $contenu .= '<td>'.$projects['pj-title'].'</td>';
-    $contenu .= '<td>'.$projects['pj-description'].'</td>';
-    $contenu .= '<td>'.$projects['pj-lien'].'</td>';
-    $contenu .= '<td><a href="?action=modif&id='.$projects['id-project'] .'"><i class="fas fa-pen"></i></a></td>';
-    $contenu .= '<td><a href="?action=supp&id='.$projects['id-project'] .'"><i class="fas fa-minus-circle"></i></a></td>';
+    $contenu .= '<td>'.$projects['pj_title'].'</td>';
+    $contenu .= '<td>'.$projects['pj_description'].'</td>';
+    $contenu .= '<td>'.$projects['pj_lien'].'</td>';
+    $contenu .= '<td>'.$projects['pj_photo'].'</td>';
+    $contenu .= '<td><a href="?action=modif&id='.$projects['id_project'] .'"><i class="fas fa-pen"></i></a></td>';
+    $contenu .= '<td><a href="?action=supp&id='.$projects['id_project'] .'"><i class="fas fa-minus-circle"></i></a></td>';
     $contenu .= '</tr>';
-}
-
-
-
-
+} // lorsqu'on ira sur la font selectionnée,l'url detectera l'id proposé
 
 ?> <!-- fermeture de la balise php afin de mettre du html -->
 <!-- affichage de ma table project sous forme de tableau HTml-->
@@ -77,13 +75,17 @@ while($projects = $resultat ->fetch(PDO::FETCH_ASSOC)){ // tant que j'ai des don
     <div class="container">
         <table class="table table-bordered text-center">
              <thead>
+             
                  <tr>
                   <!-- <th scope="col">n° du projet</th> -->
                   <th scope="col">Titre</th>
                   <th scope="col">Description</th>
                   <th scope="col">Liens</th>
+                  <th scope="col">photo</th>
                   <th colspan="2">action</th>
+
                  </tr>
+                 
              </thead>
  <tbody>
      <?php

@@ -33,3 +33,8 @@ h1{
 .card_admin{
     margin-top: 10vh;
 }
+/* page formulaire projet*/
+input[type=file] {
+    margin-bottom:40px;
+    padding:0px;
+} 

@@ -115,36 +115,6 @@ if($_POST){ // si on valide le formulaire, on entre dans le IF
 
 </main>
 
- <!-- <main class="main_contact">
-  <div class="row">
-    
-    <h1 class="display-4 text-center"> Formulaire de Contact </h1>
-
-  </div>
-  
-   
-    <div class="container">
-       
-      <form class="col-md-4 offset-md-4" method="post" >
-        <div class="form-group">
-            <label for="objet">Objet</label>
-            <input type="objet" class="form-control" id="objet" name="objet" placeholder="Enter objet">
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="text" class="form-control" id="email" name="email" placeholder="Enter email">
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <input type="text" class="form-control" id="message" name="message" row="3"placeholder="Enter message">
-          </div>
-          
-
-          <button type="submit" name="submit" class="col -md-12 btn btn-primary mb-4">Submit</button>
-        </form>
-    </div> FIN .container
-    -->
-<!--j'appelle la page footer -->
 </body>
 </html>
 <?php 
