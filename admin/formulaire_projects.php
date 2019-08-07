@@ -101,7 +101,6 @@ if($_POST){ // si on valide le formulaire, on entre dans le IF
 
          <div class="form-group">
                 <label for="liens">Liens</label>
-                on appelle l'erreur sous le label avec un champs php
                 <?php echo $errorLien ?> 
                <input type="text" class="form-control" id="liens" placeholder="liens URL" name="liens" >
          </div>
