@@ -6,8 +6,8 @@
 }
 /* font général  */
 @font-face {
-        font-family : chunkfive;
-        src : url(../);
+        font-family : brushield;
+        src : url(../font/brushield/Brushield\ italic.otf);
 }
 /* page connexion */
 body{

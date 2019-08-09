@@ -30,6 +30,62 @@ $validate = ''; // déclaration d'une variable
 
 // }
 
+if($_POST)
+{
+    $photo_bdd = '';
+    if(isset($_GET['action']) && $_GET['action'] == 'modification')
+    {
+        $photo_bdd = $photo_actuelle; // si on souhaite conserver la même photo en cas de modification, on affecte la valeur du champ photo 'hidden', c'est à dire l'URL de la photo selectionnée en BDD
+    }
+
+    if(!empty($_FILES['pj_photo']['name'])) // on vérifie que l'indice 'name' dans la superglobale $_FILES n'est pas vide, cela veut dire que l'on a bien uploder une photo
+    {
+        $nom_photo = $reference . '-' . $_FILES['pj_photo']['name']; // on redéfinit le nom de la photo en concaténant le réference saisi dans le formulaire avec le nom de la photo
+        //echo $nom_photo . '<br>';
+
+        $photo_bdd = URL . "image/$nom_photo"; // on définit l'URL de la photo,c'est ce que l'on conservera en BDD
+        //echo $photo_bdd . '<br>';
+
+        $photo_dossier = RACINE_SITE . "image/$nom_photo"; // on définit le chemin physique de la photo sur le disque dur du serveur, c'est ce qui nous permettra de copier la photo dans le dossier photo
+        //echo $photo_dossier . '<br>';
+
+        copy($_FILES['pj_photo']['tmp_name'], $photo_dossier); // copy() est une fonction prédéfinie qui permet de copierla photo dans le dossier photo . arguments : copy(nom_temporaire_photo, chemin de destination)
+    }
+
+// Ajout Projet
+
+if(isset($_GET['action']) && $_GET['action'] == 'ajout')
+    {
+        $data_insert = $bdd->prepare("INSERT INTO projects
+        (pj_title,pj_description,pj_photo) VALUES (:pj_title,:pj_description,:pj_photo)");
+
+        $_GET['action'] = 'affichage';
+
+        $validate .= "<div class='alert alert-success col-md-6 offset-md-3 text-center'>Le projet <strong>$pj_title</strong> a bien été ajouté !!</div>"; 
+    }
+    else
+    {
+        // Exo : requete update
+    
+        $data_insert = $bdd->prepare("UPDATE projects SET pj_title = :pj_title, pj_description = :pj_description, pj_photo WHERE id_project = $id_project");
+        
+        $_GET['action'] = 'affichage';
+
+        $validate .= "<div class='alert alert-success col-md-6 offset-md-3 text-center'>Le projet  n° <strong>$id_project</strong> a bien été modifié !!</div>"; 
+    }
+    
+    foreach($_POST as $key => $value)
+    {
+        if($key != 'pj_photo') // on ejecte le champs 'hidden' de la photo
+        {
+            $data_insert->bindValue(":$key", $value, PDO::PARAM_STR); 
+        } 
+    }
+    $data_insert->bindValue(":pj_photo", $photo_bdd, PDO::PARAM_STR); 
+    $data_insert->execute();
+
+}
+
 //-----------------AFFICHAGE DES PROJETS    
 $contenu =''; 
 $resultat= $bdd->query('SELECT * FROM projects'); 
@@ -39,7 +95,6 @@ while($projects = $resultat ->fetch(PDO::FETCH_ASSOC)){ // tant que j'ai des don
     $contenu .= '<tr>';
     $contenu .= '<td>'.$projects['pj_title'].'</td>';
     $contenu .= '<td>'.$projects['pj_description'].'</td>';
-    $contenu .= '<td>'.$projects['pj_lien'].'</td>';
     $contenu .= '<td>'.$projects['pj_photo'].'</td>';
     $contenu .= '<td><a href="?action=modif&id='.$projects['id_project'] .'"><i class="fas fa-pen"></i></a></td>';
     $contenu .= '<td><a href="?action=supp&id='.$projects['id_project'] .'"><i class="fas fa-minus-circle"></i></a></td>';
@@ -80,7 +135,6 @@ while($projects = $resultat ->fetch(PDO::FETCH_ASSOC)){ // tant que j'ai des don
                   <!-- <th scope="col">n° du projet</th> -->
                   <th scope="col">Titre</th>
                   <th scope="col">Description</th>
-                  <th scope="col">Liens</th>
                   <th scope="col">photo</th>
                   <th colspan="2">action</th>
 

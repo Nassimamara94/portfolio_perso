@@ -1,5 +1,5 @@
 <?php
-require_once "../include/init.php";// 1 - CONNEXION BD
+require_once('../include/init.php');// 1 - CONNEXION BD
 
 // II - je m'occupe du traitement PHP
 
@@ -7,7 +7,7 @@ extract($_POST); // importe les variable de la méthode POST
 extract($_GET);
 $errorTitre ='';
 $errorDescription ='';
-$errorLien ='';
+$errorPhoto ='';
 
 $validate ='';
  
@@ -15,18 +15,19 @@ $validate ='';
 
 if($_POST){ // si on valide le formulaire, on entre dans le IF
 
-    if(empty($titre) || iconv_strlen($titre) < 2 || iconv_strlen($titre) > 20) {
+//     if (strlen($_POST['nom']) < 3 || strlen($_POST['nom']) > 21) {
+//        $error2 .= '<div class="col-md-6 offset-md-3 text-center alert alert-danger">Votre Nom doit etre compris entre 4 et 20 caractères</div>';
+//    }
+
+    if (strlen ($titre) < 2 || strlen($titre) > 20) {
        $errorTitre .= '<span class="col text-warning text-center"> Saisissez un titre valide 20 caractères max</span>';
     }
     
     if(empty($description) || iconv_strlen($description) < 2 || iconv_strlen($description) > 200) {
          $errorDescription .= '<span class="col text-warning text-center"> Ce Champs est obligatoire</span>';
     }
-     if(empty($liens) || !filter_var($liens, FILTER_VALIDATE_URL)){
-        $errorLien .= '<span class="col text-warning text-center"> Lien non Valide</span>';
-     }
      if(empty($photo)){
-        $errorLien .= '<span class="col text-warning text-center"> photo non Valide</span>';
+        $errorPhoto .= '<span class="col text-warning text-center"> photo non Valide</span>';
      }
 
      if(empty($errorTitre) && empty($errorDescription) && empty($errorLien)){
@@ -48,7 +49,6 @@ if($_POST){ // si on valide le formulaire, on entre dans le IF
 
          $insertion->bindValue(':pj_title',$pj_title,PDO::PARAM_STR);
          $insertion->bindValue(':pj_description',$pj_description,PDO::PARAM_STR);
-         $insertion->bindValue(':pj_lien',$pj_lien,PDO::PARAM_STR);
          $insertion->bindValue(':pj_photo',$pj_photo,PDO::PARAM_STR);
 
          $insertion->execute();
@@ -98,18 +98,13 @@ if($_POST){ // si on valide le formulaire, on entre dans le IF
                 <?php echo $errorDescription ?>
                 <textarea class="form-control" name="pj-description" placeholder="description" rows="3"></textarea>
             </div>
-
-         <div class="form-group">
-                <label for="liens">Liens</label>
-                <?php echo $errorLien ?> 
-               <input type="text" class="form-control" id="liens" placeholder="liens URL" name="liens" >
-         </div>
             <div class="form-group">
                 <label for="photo">Photo</label>
+                <?php echo $errorPhoto ?> 
                <input type="file" class="form-control" id="photo" name="photo" >
             </div>
 
-             <button type="submit" name="connexion" class="btn btn-secondary col-md-12" style="background-color:#ffffff31" >Envoyer</button>
+             <button type="submit" name="connexion" class="btn btn-secondary col-md-12" style="background-color:#ffffff31" >Ajout</button>
            
         </form>
  </div> <!-- fin container -->

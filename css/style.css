@@ -21,7 +21,9 @@ body{
     color: white;
     /* background-color: black; */
 }
-/* ZONING page d'accueil*/
+/*--------------------------------------------------
+
+ZONING page d'accueil*/
 #block1{
     /* background: #000; */
     /* background-image: url("../image/Space_Debris-ESA.jpg"); */
@@ -33,6 +35,13 @@ body{
     padding-right:0;
     background-position: center;  
 } 
+/*-------------------------------------------------
+ Bouton de connexion */
+#connect{
+  cursor: text;
+  text-decoration: none;
+  color:#fff;
+}
 .about{
   position:absolute;
   top:40%;
@@ -65,7 +74,8 @@ body{
     text-shadow: 0 0 20px #0008CB, 0 0 30px #0008CB, 0 0 40px #0008CB, 0 0 50px #0008CB, 0 0 60px #0008CB, 0 0 70px #0008CB, 0 0 80px #0008CB;
   }
 }
-/* partie A propos */
+/*-------------------------------------------------
+ partie A propos */
 #block2{
     /* background:red; */
     height: 100vh;
@@ -90,7 +100,7 @@ body{
 
 #sBlockb{
     /* background:green; */
-    background-image: url("../image/milky-way-916523_1280.jpg");
+    background-image: url("../image/imageR.jpg");
     background-size: cover;
     height: 25vh;
     width: 50vw;
@@ -120,7 +130,8 @@ body{
     margin-left:35%;
     top:20px;
 }
-/* fin ZONING page d'accueil */
+/*-----------------------------------------------
+ fin ZONING page d'accueil */
 
 /* Page A propos */
 
@@ -138,22 +149,26 @@ body{
 a{
     color:white;
 }
-/* Page Formation */
+/*------------------------------------------------
+ Page Formation */
 .main_formation{
-    background-image: URL("../image/milky-way-916523_1280.jpg");
+    background-image: URL("../image/imageR.jpg");
     background-size: cover;
 }
-/* Page Competence */
+/* ----------------------------------------------
+Page Competence */
 .main_competence{
     background-image: URL("../image/codage-l-application-par-le-développeur-de-programmeur-code-de-programmation-abstrait-fond-d-écran.jpg");
     background-size: cover;
 }
-/* Page Projects */
+/* ----------------------------------------------
+Page Projects */
 .main_projects{
     background-image: URL("../image/antelope-canyon-1128815_1280.jpg");
     background-size: cover;
 }
-/* Page Contact */
+/* -----------------------------------------------
+Page Contact */
 #contact{
     background-image: URL("../image/parachute-1843350_1920.jpg");
     background-size: cover;
@@ -167,4 +182,12 @@ hr{
 }
 .footer{
     background-color:rgb(0, 65, 139);
+}
+/* ----------------------------------------------------
+page header */
+.navbar{
+    background: rgba(156, 116, 41, 0);
+}
+#nom_header{
+    text-align:right;
 }
