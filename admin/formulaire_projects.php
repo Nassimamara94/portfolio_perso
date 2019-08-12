@@ -5,9 +5,9 @@ require_once('../include/init.php');// 1 - CONNEXION BD
 
 extract($_POST); // importe les variable de la méthode POST
 extract($_GET);
-$errorTitre ='';
-$errorDescription ='';
-$errorPhoto ='';
+$pj_titleError ='';
+$pj_descriptionError ='';
+$pj_PhotoError ='';
 
 $validate ='';
  
@@ -15,22 +15,20 @@ $validate ='';
 
 if($_POST){ // si on valide le formulaire, on entre dans le IF
 
-//     if (strlen($_POST['nom']) < 3 || strlen($_POST['nom']) > 21) {
-//        $error2 .= '<div class="col-md-6 offset-md-3 text-center alert alert-danger">Votre Nom doit etre compris entre 4 et 20 caractères</div>';
-//    }
 
-    if (strlen ($titre) < 2 || strlen($titre) > 20) {
-       $errorTitre .= '<span class="col text-warning text-center"> Saisissez un titre valide 20 caractères max</span>';
+
+    if (strlen ($pj_title) < 2 || strlen($pj_title) > 40) {
+       $pj_titleError .= '<span class="col text-warning text-center"> Saisissez un titre valide entre 2 et  40 caractères max</span>';
     }
     
-    if(empty($description) || iconv_strlen($description) < 2 || iconv_strlen($description) > 200) {
-         $errorDescription .= '<span class="col text-warning text-center"> Ce Champs est obligatoire</span>';
+    if(empty($pj_description) || iconv_strlen($pj_description) < 2 || iconv_strlen($pj_description) > 200) {
+         $pj_descriptionError .= '<span class="col text-warning text-center"> Ce Champs est obligatoire</span>';
     }
-     if(empty($photo)){
-        $errorPhoto .= '<span class="col text-warning text-center"> photo non Valide</span>';
+     if(empty($pj_photo)){
+        $pj_PhotoError  .= '<span class="col text-warning text-center"> photo non Valide</span>';
      }
 
-     if(empty($errorTitre) && empty($errorDescription) && empty($errorLien)){
+     if(empty($pj_titleError) && empty($pj_descriptionError) && empty($pj_PhotoError)){
 
 
         //requête de protection SQL
@@ -45,7 +43,7 @@ if($_POST){ // si on valide le formulaire, on entre dans le IF
 
 
          // insertion d'un projet dans la table 'projects' (requête préparée)
-         $insertion=$bdd->prepare("INSERT INTO projects (pj_title, pj_description, pj_lien, pj_photo ) VALUES (:pj_title, :pj_description, :pj_lien, :pj_photo)");
+         $insertion=$bdd->prepare("INSERT INTO projects (pj_title, pj_description,pj_photo ) VALUES (:pj_title, :pj_description, :pj_photo)");
 
          $insertion->bindValue(':pj_title',$pj_title,PDO::PARAM_STR);
          $insertion->bindValue(':pj_description',$pj_description,PDO::PARAM_STR);
@@ -83,25 +81,25 @@ if($_POST){ // si on valide le formulaire, on entre dans le IF
 </head>
 <body>
 
-   <h1 class="display-4 text-center formulaire_projects m-5">Formulaire de mes Projet </h1>
+   <h1 class="display-4 text text-center formulaire_projects m-5">Formulaire de mes Projet </h1>
   
  <div class="container"> <!-- début container -->
-        <form class="col-md-8 offset-md-3 mt-5" method="post" >
+        <form class="col-md-8 offset-md-2 mt-5 mb-5" method="post" >
            <!-- champs formulaire de mes projet -->
          <div class="form-group">
              <label for="titre">Titre</label>
-                <?php echo $errorTitre ?>
-                 <input type="text" class="form-control" id="titre" placeholder="Titre" name="pj-title" >
+                <?php echo $pj_titleError ?>
+                 <input type="text" class="form-control" id="titre" placeholder="Titre" name="pj_title" >
          </div>
             <div class="form-group">
                 <label for="description">Description</label>
-                <?php echo $errorDescription ?>
-                <textarea class="form-control" name="pj-description" placeholder="description" rows="3"></textarea>
+                <?php echo $pj_descriptionError ?>
+                <textarea class="form-control" name="pj_description" placeholder="description" rows="3"></textarea>
             </div>
             <div class="form-group">
                 <label for="photo">Photo</label>
-                <?php echo $errorPhoto ?> 
-               <input type="file" class="form-control" id="photo" name="photo" >
+                <?php echo $pj_PhotoError ?> 
+               <input type="file" class="form-control" id="photo" name="pj_photo" >
             </div>
 
              <button type="submit" name="connexion" class="btn btn-secondary col-md-12" style="background-color:#ffffff31" >Ajout</button>
