@@ -91,11 +91,10 @@ $contenu ='';
 $resultat= $bdd->query('SELECT * FROM projects'); 
 
 while($projects = $resultat ->fetch(PDO::FETCH_ASSOC)){ // tant que j'ai des données dans ma table, ma boucle affiche le resultat
-    $contenu .= '<a href="formulaire_projects.php"><i class="fas fa-plus-circle"></i></a>';
     $contenu .= '<tr>';
-    $contenu .= '<td>'.$projects['pj_title'].'</td>';
-    $contenu .= '<td>'.$projects['pj_description'].'</td>';
-    $contenu .= '<td>'.$projects['pj_photo'].'</td>';
+    $contenu .= '<td class="text-warning">'.$projects['pj_title'].'</td>';
+    $contenu .= '<td class="text-warning">'.$projects['pj_description'].'</td>';
+    $contenu .= '<td class="text-warning">'.$projects['pj_photo'].'</td>';
     $contenu .= '<td><a href="?action=modif&id='.$projects['id_project'] .'"><i class="fas fa-pen"></i></a></td>';
     $contenu .= '<td><a href="?action=supp&id='.$projects['id_project'] .'"><i class="fas fa-minus-circle"></i></a></td>';
     $contenu .= '</tr>';
@@ -128,9 +127,9 @@ while($projects = $resultat ->fetch(PDO::FETCH_ASSOC)){ // tant que j'ai des don
 
  <h1 class="display-4 text-center">Gestion des projets</h1><hr>
     <div class="container">
+     <a href="formulaire_projects.php"><i class="fas fa-plus-circle fa-2x offset-11 mb-3"></i></a>
         <table class="table table-bordered text-center">
              <thead>
-             
                  <tr>
                   <!-- <th scope="col">n° du projet</th> -->
                   <th scope="col">Titre</th>

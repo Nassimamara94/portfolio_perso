@@ -12,6 +12,38 @@
         font-family :brushield;
         src : url(../font/brushield/Brushield\ italic.ttf);
 }
+@media all and (max-width:768px) /*si l’écran du terminal utilisé par le visiteur est inférieur à 768px */
+
+{
+
+ #block1{
+    height: 100vh;
+     }   
+
+ #block2{
+    height: 50vh;
+     }   
+
+}
+
+@media all and (min-width:768px and max-width: 1024px) 
+
+{
+ #block1{
+    height: 100vh;
+     }   
+
+ #block2{
+    height: 50vh;
+     }   
+
+
+}
+
+
+
+
+
 header{
     margin: 0;
     padding:0;

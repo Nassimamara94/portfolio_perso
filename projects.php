@@ -10,38 +10,16 @@ require_once("include/header.php");
 <div class="container-fluid">
 
 <div class="lorem">
+<br><br><br>
 
-<!-- <br><br><br><br> -->
-<p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vero hic? Tempore eos a voluptatibus porro illum inventore voluptas delectus soluta, quam at aperiam illo, unde ipsam sint, excepturi impedit.
-</p>
-<p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vero hic? Tempore eos a voluptatibus porro illum inventore voluptas delectus soluta, quam at aperiam illo, unde ipsam sint, excepturi impedit.
-</p>
-<p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vero hic? Tempore eos a voluptatibus porro illum inventore voluptas delectus soluta, quam at aperiam illo, unde ipsam sint, excepturi impedit.
-</p>
-<p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vero hic? Tempore eos a voluptatibus porro illum inventore voluptas delectus soluta, quam at aperiam illo, unde ipsam sint, excepturi impedit.
-</p>
-<p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vero hic? Tempore eos a voluptatibus porro illum inventore voluptas delectus soluta, quam at aperiam illo, unde ipsam sint, excepturi impedit.
-</p>
-<p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vero hic? Tempore eos a voluptatibus porro illum inventore voluptas delectus soluta, quam at aperiam illo, unde ipsam sint, excepturi impedit.
-</p>
-<p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vero hic? Tempore eos a voluptatibus porro illum inventore voluptas delectus soluta, quam at aperiam illo, unde ipsam sint, excepturi impedit.
-</p>
-<p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vero hic? Tempore eos a voluptatibus porro illum inventore voluptas delectus soluta, quam at aperiam illo, unde ipsam sint, excepturi impedit.
-</p>
-<p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vero hic? Tempore eos a voluptatibus porro illum inventore voluptas delectus soluta, quam at aperiam illo, unde ipsam sint, excepturi impedit.
-</p>
-<p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vero hic? Tempore eos a voluptatibus porro illum inventore voluptas delectus soluta, quam at aperiam illo, unde ipsam sint, excepturi impedit.
-</p>
+<div class="card mt-20px;" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
 </div>
 </div>
 
