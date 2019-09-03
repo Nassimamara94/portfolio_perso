@@ -30,6 +30,51 @@ $validate = ''; // déclaration d'une variable
 
 // }
 
+// 1 -  Je récupère les infos pour la modification
+if(isset($_GET['action']) && $_GET['action'] == 'modifier' && ($_GET['id'])){
+   $req = $bdd->prepare("SELECT * FROM projets WHERE id_projet = :id_projet");
+   $req->bindParam(':id_projet', $_GET['id']);
+   $req->execute();
+   if($req->rowCount()> 0){
+       //Je récupère des infos en BDD pour afficher dans le formulaire de modification
+       $projet_update = $req->fetch(PDO::FETCH_ASSOC);
+   }
+//---insertion en bdd
+if($_POST){
+ if(empty($titre_projet)||iconv_strlen($titre_projet)<2||iconv_strlen($titre_projet)>100){
+   $msgTitre.='<span class=" alert-warning text-danger"> ** Saisissez un titre valide (100 caractère max)</span>';
+ }
+ if(empty($contenu) ||iconv_strlen($contenu)>400){
+   $msgContenu.='<span class="alert-warning text-danger"> ** La description de doit pas dépasser 400 caractères</span>';
+ }
+ if(empty($liens) ||!filter_var($liens, FILTER_VALIDATE_URL)){
+   $msgliens.='<span class="alert-warning text-danger"> ** Saisissez une url valide</span>';
+ }
+//------------j'insert en bdd-------
+$donnees=$bdd->prepare("REPLACE INTO projets VALUES (:id_projet, :titre_projet, :liens, :contenu)", array(
+               ':id_projet' => $_POST['id_projet'],
+               ':titre_projet' => $_POST['titre_projet'],
+               ':liens' => $_POST['liens'],
+               ':contenu' => $_POST['contenu'],
+       ));
+       $donnees->bindValue(':id_projet', $_POST['id_projet'],PDO::PARAM_STR);
+       $donnees->bindValue(':titre_projet', $_POST['titre_projet'],PDO::PARAM_STR);
+       $donnees->bindValue(':liens',$_POST['liens'],PDO::PARAM_STR);
+       $donnees->bindValue(':contenu', $_POST['contenu'],PDO::PARAM_STR);
+       $donnees->execute() ;
+       $successProjet .= '<div class="alert alert-success">L\'enregistrement a bien été réalisé en BDD.</div>';
+   }
+}
+}//-----fin if($_POST)
+
+
+
+
+
+
+
+
+
 if($_POST)
 {
     $photo_bdd = '';

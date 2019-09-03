@@ -1,8 +1,8 @@
 <?php
 require_once("include/init.php");
 extract($_POST);
-$errorPrenom ='';
 $errorNom ='';
+$errorPreNom ='';
 $errorEmail ='';
 $errorPhone ='';
 $errorObjet ='';
@@ -12,11 +12,11 @@ $errorMessage ='';
 
 if($_POST){ // si on valide le formulaire, on entre dans le IF
 
-   if(empty($prenom) || iconv_strlen($prenom) <2 || iconv_strlen($prenom) > 30) {
+   if(empty($nom) || iconv_strlen($nom) <2 || iconv_strlen($nom) > 30) {
     $errorPrenom .= '<span class="col text-danger text-center"> Saisissez un prénom valide 30 caractères max</span>';
    }
 
-   if(empty($nom)  || iconv_strlen($nom) <2 || iconv_strlen($nom) > 30) { 
+   if(empty($prenom)  || iconv_strlen($prenom) <2 || iconv_strlen($prenom) > 30) { 
     $errorNom .= '<span class="col text-danger text-center"> Saisissez un nom valide 30 caractères max.</span>';
    }
 
@@ -24,19 +24,33 @@ if($_POST){ // si on valide le formulaire, on entre dans le IF
     $errorEmail .= '<span class="col text-danger text-center"> Email non Valide</span>';
    } 
 
-   if(!preg_match('#^[0-9]{10}+$#', $telephone)){ // debut et fin de chaine de caractère c le '#' on lui dit entre accolade 10 caractère,et le + c'est pour dire qu'il peut l'utiliser plusieurs fois
+   if(!preg_match('#^[0-9]{10}+$#', $phone)){ // debut et fin de chaine de caractère c le '#' on lui dit entre accolade 10 caractère,et le + c'est pour dire qu'il peut l'utiliser plusieurs fois
    $errorPhone .= '<span class="col text-danger text-center">Téléphone non valide, caractères non autorisés !! </span>';
   }
 
-   if(empty($objet) && iconv_strlen($objet) <2 || iconv_strlen($objet) >20) {
+   if(empty($objet) && iconv_strlen($objet) <2 || iconv_strlen($objet) >40) {
      $errorObjet .='<span class="col text-danger text-center">Vous n\'avez pas saisie le sujet de votre message</span>';
    }
    if(empty($message) || iconv_strlen($message) >255) {
      $errorMessage  .='<span class="col text-danger text-center">Vous n\'avez pas saisie le sujet de votre message</span>';
    }
 
+   // insérer en BDD si y'a pas d'erreur
+   if(empty($errorPrenom) && empty ($errorNom) && empty($errorEmail))
+       {
+         $newVisiteur = $bdd->prepare("INSERT INTO contact(nom,prenom,email,telephone,objet,message) VALUES (:nom, :prenom, :email,:telephone, :objet, :message)");
+         $newVisiteur->bindvalue(':nom', $prenom, PDO::PARAM_STR);
+         $newVisiteur->bindvalue(':prenom', $nom, PDO::PARAM_STR);
+         $newVisiteur->bindvalue(':email', $email, PDO::PARAM_STR);
+         $newVisiteur->bindvalue(':telephone', $telephone, PDO::PARAM_STR);
+         $newVisiteur->bindvalue(':objet', $objet, PDO::PARAM_STR);
+         $newVisiteur->bindvalue(':message', $message, PDO::PARAM_STR);
+         $newVisiteur->execute();
+         $validate .='<div class="alert alert-success">Votre message a bien été envoyé</div>';
+       }
    
-   
+
+  //
   
 } // Fin If($_post)
 ?>
