@@ -2,9 +2,9 @@
 require_once("include/init.php");
 extract($_POST);
 $errorNom ='';
-$errorPreNom ='';
+$errorPrenom ='';
 $errorEmail ='';
-$errorPhone ='';
+$errorTelephone ='';
 $errorObjet ='';
 $errorMessage ='';
   // echo  '<pre style="color:white;">'; print_r($_POST); echo '</pre>';
@@ -12,20 +12,20 @@ $errorMessage ='';
 
 if($_POST){ // si on valide le formulaire, on entre dans le IF
 
-   if(empty($nom) || iconv_strlen($nom) <2 || iconv_strlen($nom) > 30) {
-    $errorPrenom .= '<span class="col text-danger text-center"> Saisissez un prénom valide 30 caractères max</span>';
+   if(empty($prenom) || iconv_strlen($prenom) <2 || iconv_strlen($prenom) > 30) {
+    $errorNom .= '<span class="col text-danger text-center"> Saisissez un prénom valide 30 caractères max</span>';
    }
 
-   if(empty($prenom)  || iconv_strlen($prenom) <2 || iconv_strlen($prenom) > 30) { 
-    $errorNom .= '<span class="col text-danger text-center"> Saisissez un nom valide 30 caractères max.</span>';
+   if(empty($nom)  || iconv_strlen($nom) <2 || iconv_strlen($nom) > 30) { 
+    $errorPrenom .= '<span class="col text-danger text-center"> Saisissez un nom valide 30 caractères max.</span>';
    }
 
    if(empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $errorEmail .= '<span class="col text-danger text-center"> Email non Valide</span>';
    } 
 
-   if(!preg_match('#^[0-9]{10}+$#', $phone)){ // debut et fin de chaine de caractère c le '#' on lui dit entre accolade 10 caractère,et le + c'est pour dire qu'il peut l'utiliser plusieurs fois
-   $errorPhone .= '<span class="col text-danger text-center">Téléphone non valide, caractères non autorisés !! </span>';
+   if(!preg_match('#^[0-9]{10}+$#', $telephone)){ // debut et fin de chaine de caractère c le '#' on lui dit entre accolade 10 caractère,et le + c'est pour dire qu'il peut l'utiliser plusieurs fois
+   $errorTelephone .= '<span class="col text-danger text-center">Téléphone non valide, caractères non autorisés !! </span>';
   }
 
    if(empty($objet) && iconv_strlen($objet) <2 || iconv_strlen($objet) >40) {
@@ -106,7 +106,7 @@ if($_POST){ // si on valide le formulaire, on entre dans le IF
           </div>
            <div class="form-group">
            <label for="telephone">Telephone</label>
-           <?= $errorPhone;?>
+           <?= $errorTelephone;?>
            <input type="text" class="form-control" id="telephone" name="telephone">
           </div>
         <div class="form-group">
