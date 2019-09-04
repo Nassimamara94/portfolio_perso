@@ -64,7 +64,6 @@ $donnees=$bdd->prepare("REPLACE INTO projets VALUES (:id_projet, :titre_projet, 
        $donnees->execute() ;
        $successProjet .= '<div class="alert alert-success">L\'enregistrement a bien été réalisé en BDD.</div>';
    }
-}
 }//-----fin if($_POST)
 
 
