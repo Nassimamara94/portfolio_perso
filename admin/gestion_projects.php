@@ -11,36 +11,46 @@ $validate = ''; // déclaration d'une variable
 
 
 //--------SUPPRESSION PROJET------------
+
 // on entre dans le IF seulement dans le cas ou l'on a cliqué sur le bouton suppression
-// if(isset($_GET['action']) && $_GET['action'] =='suppression')
-// {
-
+if (isset($_GET['action']) && $_GET['action'] == 'suppression')
+{ 
+    
 // requête de suppression / requete préparée
+    $projects_delete = $bdd->prepare("DELETE FROM projects WHERE id_project = :id_project");
+    // Je recupere l'id qui se trouve dans l'URL
+    $projects_delete->bindValue(':id_project', $projects['id_project'], PDO::PARAM_INT);  // $id_produit fait référence à $_GET['id_produit'] (extract)
+    $projects_delete->execute();
 
-    // $data_delete = $bdd->prepare("DELETE FROM projects WHERE id_project = :id_project");
+    $_GET['action'] = 'affichage'; // on redirige vers l'affichage des produits 
 
-    //  on associe une valeur à un paramètre 
-    // $data_delete->bindValue(':id_produit', $id_produit, PDO::PARAM_INT); // $id_produit fait référence à $_GET['id_produit'] (extract)
-    // $data_delete->execute();
+    $validate .= "<div class='alert alert-success col-md-6 offset-md-3 text-center'>Le projet N° <strong>$projects['id_project']</strong> a bien été supprimer !! </div>";
 
-
-    // $validate .= "<div class='alert alert-success col-md-6 offset-md-3 text-center'>Le projet N° <strong>$id_produit</strong> a bien été supprimer !! </div>";
-
+}
 // fin requete suppression
 
-// }
+
+
+
+
+
+
 
 // 1 -  Je récupère les infos pour la modification
-if(isset($_GET['action']) && $_GET['action'] == 'modifier' && ($_GET['id'])){
-   $req = $bdd->prepare("SELECT * FROM projets WHERE id_projet = :id_projet");
-   $req->bindParam(':id_projet', $_GET['id']);
-   $req->execute();
-   if($req->rowCount()> 0){
-       //Je récupère des infos en BDD pour afficher dans le formulaire de modification
-       $projet_update = $req->fetch(PDO::FETCH_ASSOC);
-   }
+
+if ($_POST)
+{ // début $_POST
+
+    if(isset($_GET['action']) && $_GET['action'] == 'modifier' && ($_GET['id'])){
+    $req = $bdd->prepare("SELECT * FROM projets WHERE id_projet = :id_projet");
+    $req->bindParam(':id_projet', $_GET['id']);
+    $req->execute();
+    if($req->rowCount()> 0){
+        //Je récupère des infos en BDD pour afficher dans le formulaire de modification
+        $projet_update = $req->fetch(PDO::FETCH_ASSOC);
+    }
 //---insertion en bdd
-if($_POST){
+// if($_POST){
  if(empty($titre_projet)||iconv_strlen($titre_projet)<2||iconv_strlen($titre_projet)>100){
    $msgTitre.='<span class=" alert-warning text-danger"> ** Saisissez un titre valide (100 caractère max)</span>';
  }
@@ -64,7 +74,6 @@ $donnees=$bdd->prepare("REPLACE INTO projets VALUES (:id_projet, :titre_projet, 
        $donnees->execute() ;
        $successProjet .= '<div class="alert alert-success">L\'enregistrement a bien été réalisé en BDD.</div>';
    }
-}//-----fin if($_POST)
 
 
 
@@ -74,8 +83,8 @@ $donnees=$bdd->prepare("REPLACE INTO projets VALUES (:id_projet, :titre_projet, 
 
 
 
-if($_POST)
-{
+
+
     $photo_bdd = '';
     if(isset($_GET['action']) && $_GET['action'] == 'modification')
     {
@@ -109,7 +118,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'ajout')
     }
     else
     {
-        // Exo : requete update
+        // requete update
     
         $data_insert = $bdd->prepare("UPDATE projects SET pj_title = :pj_title, pj_description = :pj_description, pj_photo WHERE id_project = $id_project");
         
@@ -128,7 +137,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'ajout')
     $data_insert->bindValue(":pj_photo", $photo_bdd, PDO::PARAM_STR); 
     $data_insert->execute();
 
-}
+}// fin $_POST
 
 //-----------------AFFICHAGE DES PROJETS    
 $contenu =''; 
@@ -136,13 +145,21 @@ $resultat= $bdd->query('SELECT * FROM projects');
 
 while($projects = $resultat ->fetch(PDO::FETCH_ASSOC)){ // tant que j'ai des données dans ma table, ma boucle affiche le resultat
     $contenu .= '<tr>';
-    $contenu .= '<td class="text-warning">'.$projects['pj_title'].'</td>';
-    $contenu .= '<td class="text-warning">'.$projects['pj_description'].'</td>';
-    $contenu .= '<td class="text-warning">'.$projects['pj_photo'].'</td>';
-    $contenu .= '<td><a href="?action=modif&id='.$projects['id_project'] .'"><i class="fas fa-pen"></i></a></td>';
-    $contenu .= '<td><a href="?action=supp&id='.$projects['id_project'] .'"><i class="fas fa-minus-circle"></i></a></td>';
+    $contenu .= '<td class="text-dark font-weight-bold">'.$projects['pj_title'].'</td>';
+    $contenu .= '<td class="text-dark font-weight-bold">'.$projects['pj_description'].'</td>';
+    // $contenu .= '<td class="text-warning">'.$projects['pj_photo'].'</td>';
+    $contenu .= '<td  scope="col" class="array-article  text-center"><img src="../img/'.$projects['pj_photo'].'">"</td>';
+
+    $contenu .= '<td><a href="?action=modif&id='.$projects['id_project'] .'"><i class="fas fa-pen text-light"></i></a></td>';
+    $contenu .= '<td  scope="col" class="array-article  text-center"><a class="return"  href="?action=suppression&id=' . $projects['id_project'] . '" onClick="return confirm(\'Etes-vous sûr ?\');"><i
+  class="fas fas fa-minus-circle text-danger"></i></a></td>';
+
+
+
     $contenu .= '</tr>';
 } // lorsqu'on ira sur la font selectionnée,l'url detectera l'id proposé
+
+//   echo '<pre>'; print_r($id_project); echo '</pre>';
 
 ?> <!-- fermeture de la balise php afin de mettre du html -->
 <!-- affichage de ma table project sous forme de tableau HTml-->
@@ -172,7 +189,7 @@ while($projects = $resultat ->fetch(PDO::FETCH_ASSOC)){ // tant que j'ai des don
  <h1 class="display-4 text-center">Gestion des projets</h1><hr>
     <div class="container">
      <a href="formulaire_projects.php"><i class="fas fa-plus-circle fa-2x offset-11 mb-3"></i></a>
-        <table class="table table-bordered text-center">
+        <table class="table table-bordered text-center text text-light">
              <thead>
                  <tr>
                   <!-- <th scope="col">n° du projet</th> -->

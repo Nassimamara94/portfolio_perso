@@ -8,7 +8,10 @@
 session_start();
 
 //---------------------------CHEMIN-----------------------
-define("URL","http://siteperso/");
+define("RACINE_SITE", $_SERVER['DOCUMENT_ROOT'] . '/production_collectif/portfolio_perso/');
+define("URL", "http://localhost/production_collectif/portfolio_perso/");
+
+// define("URL","http://siteperso/");
 
 //--------- VARIABLES
 $error =''; // message d'erreur
