@@ -1,6 +1,3 @@
-<?php
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,11 +18,13 @@
  
 <div class="container">
 
-<h1 class="text-center text-primary alert alert-warning mt-5">Accueil Admin</h1>
 
-<section class="tabledesmatieres offset-4" >
 
-<div class="card m-10 card_admin" style="width: 18rem;box-shadow:10px 10px 10px black;">
+<section class="tabledesmatieres">
+  
+<h1 class="text-center text-primary alert alert-warning mt-5 mx-auto ">Accueil Admin</h1>
+
+<div class="card m-10 card_admin offset-4" style="width: 18rem;box-shadow:10px 10px 10px black;">
   <ul class="list-group list-group-flush">
     <li class="list-group-item">
       <a href="gestion_projects.php">Gestion Projets</a>

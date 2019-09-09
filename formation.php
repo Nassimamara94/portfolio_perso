@@ -67,9 +67,6 @@ require_once("include/header.php");
 
 </main>
 
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, incidunt! Dolore dolores atque quia totam fugit nemo, cupiditate est expedita, pariatur in impedit voluptates saepe et temporibus explicabo numquam eveniet!</p>
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, incidunt! Dolore dolores atque quia totam fugit nemo, cupiditate est expedita, pariatur in impedit voluptates saepe et temporibus explicabo numquam eveniet!</p>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, incidunt! Dolore dolores atque quia totam fugit nemo, cupiditate est expedita, pariatur in impedit voluptates saepe et temporibus explicabo numquam eveniet!</p>
 
 <!-- j'appelle la page footer -->
 <?php 

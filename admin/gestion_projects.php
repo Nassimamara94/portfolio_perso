@@ -10,6 +10,7 @@
 
 
 
+
     //--------SUPPRESSION PROJET------------
 
     // on entre dans le IF seulement dans le cas ou l'on a cliqué sur le bouton suppression
@@ -24,10 +25,12 @@
 
         $_GET['action'] = 'affichage'; // on redirige vers l'affichage des projets
 
-
+        $validate .= "<div class='alert alert-success col-md-6 offset-md-3 text-center'>Le produit N° <strong$id_project</strong> a bien été supprimer !! </div>";
 
     }
     // fin requete suppression
+
+
 
 
 
@@ -150,6 +153,7 @@
         $contenu .= '<td><a href="?action=modif&id='.$projects['id_project'] .'"><i class="fas fa-pen text-light"></i></a></td>';
         $contenu .= '<td  scope="col" class="array-article  text-center"><a class="return"  href="?action=suppression&id=' . $projects['id_project'] . '" onClick="return confirm(\'Etes-vous sûr ?\');"><i
     class="fas fas fa-minus-circle text-danger"></i></a></td>';
+    
 
 
 

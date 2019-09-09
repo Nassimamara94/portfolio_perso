@@ -26,28 +26,29 @@
             <h1 class="glow">Nassim Amara<br>
                <a href="../portfolio_perso/admin/connexion.php" target="_blank" id="connect">Développeur web Junior<br></a>
                Bienvenue sur mon portfolio 
-             <hr class=" bg-dark" hidden>
             </h1>
+             <hr class="bg-dark" hidden>
+       
             </div>
             <div class="col-md-6" id="block2">
                 <div class="row">
                     <div class="col-md-12" id="sBlocka">
-                        <a href="about.php"target="_blank"> <h1 class="about">A Propos</h1></a>
+                        <a href="about.php" target="_blank"> <h1 class="about">A Propos</h1></a>
                     </div>
                 </div>
                 <!-- je sépare une div en 4 partie -->
                 <div class="row">
                     <div class="col-md-6" id="sBlockb">
-                       <a href="formation.php"target="_blank"> <h1 class="about">Formation</h1></a>
+                       <a href="formation.php" target="_blank"> <h1 class="about">Formation</h1></a>
                     </div>
                     <div class="col-md-6" id="sBlockc">
-                         <a href="competence.php"target="_blank"> <h1 class="about">Compétence</h1></a>
+                         <a href="competence.php" target="_blank"> <h1 class="about">Compétence</h1></a>
                     </div>
                     <div class="col-md-6" id="sBlockd">
-                         <a href="projects.php"target="_blank"> <h1 class="about">Projects</h1></a>
+                         <a href="projects.php" target="_blank"> <h1 class="about">Projects</h1></a>
                     </div>
                     <div class="col-md-6" id="sBlocke">
-                         <a href="contact.php"target="_blank"> <h1 class="contact_title">Contact</h1></a>
+                         <a href="contact.php" target="_blank"> <h1 class="contact_title">Contact</h1></a>
                     </div>
                 </div>
             </div>
