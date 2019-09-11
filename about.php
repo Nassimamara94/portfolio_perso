@@ -19,7 +19,7 @@ require_once("include/header.php");
 
             <p class="desc"><img src="https://img.icons8.com/officexs/16/000000/quote.png" alt="icone" style="padding:10px;">
             > Nassim
-            , 29 ans, Développeur intégrateur web Junior en formation, passionné par l'informatique et par le web en particulier. <img src="https://img.icons8.com/officexs/16/000000/quote.png" style="padding:10px;" alt="icone"></p>
+            , 20 ans, Développeur intégrateur web Junior en formation, passionné par l'informatique et par le web en particulier. <img src="https://img.icons8.com/officexs/16/000000/quote.png" style="padding:10px;" alt="icone"></p>
                <!-- telecharger mon cv -->
        
 

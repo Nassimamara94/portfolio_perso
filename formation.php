@@ -31,7 +31,6 @@ require_once("include/header.php");
                         <td>Intégrateur Développeur Web Junior</td>
                         <td>LepoleS, Vitry Sur Seine (94)</td>
                         <td>19/12/2018 - En cours</td>
-                        .row
                         <td class="text-left"><p>Technologies :</p>
 
 <ul >

@@ -20,17 +20,17 @@
         <!-- j'ai créer deux div principaux (row) -->
         <div class="row">
             <!-- à l'intérieur de ma row,on met un col-md-6 afin d'avoir la page d'accueil en 2 parties principaux-->
-            <div class="col-md-6" id="block1">
+            <div class="col-md-6 col-sm-12 col-xs-12" id="block1">
 
                 <img src="image/Space_Debris-ESA.jpg" alt="routes" style="height:100%;width:100%;">
             <h1 class="glow">Nassim Amara<br>
                <a href="../portfolio_perso/admin/connexion.php" target="_blank" id="connect">Développeur web Junior<br></a>
                Bienvenue sur mon portfolio 
             </h1>
-             <hr class="bg-dark" hidden>
+             <!-- <hr class="bg-dark" hidden> -->
        
             </div>
-            <div class="col-md-6" id="block2">
+            <div class="col-md-6 col-sm-12 col-xs-12" id="block2">
                 <div class="row">
                     <div class="col-md-12" id="sBlocka">
                         <a href="about.php" target="_blank"> <h1 class="about">A Propos</h1></a>
@@ -38,16 +38,16 @@
                 </div>
                 <!-- je sépare une div en 4 partie -->
                 <div class="row">
-                    <div class="col-md-6" id="sBlockb">
+                    <div class="col-md-6 col-sm-6 col-xs-6" id="sBlockb">
                        <a href="formation.php" target="_blank"> <h1 class="about">Formation</h1></a>
                     </div>
-                    <div class="col-md-6" id="sBlockc">
+                    <div class="col-md-6 col-sm-6 col-xs-6" id="sBlockc">
                          <a href="competence.php" target="_blank"> <h1 class="about">Compétence</h1></a>
                     </div>
-                    <div class="col-md-6" id="sBlockd">
-                         <a href="projects.php" target="_blank"> <h1 class="about">Projects</h1></a>
+                    <div class="col-md-6 col-sm-6 col-xs-6" id="sBlockd">
+                         <a href="projects.php" target="_blank"> <h1 class="about">Projets</h1></a>
                     </div>
-                    <div class="col-md-6" id="sBlocke">
+                    <div class="col-md-6 col-sm-6 col-xs-6" id="sBlocke">
                          <a href="contact.php" target="_blank"> <h1 class="contact_title">Contact</h1></a>
                     </div>
                 </div>
@@ -55,7 +55,7 @@
             <!-- fin de la div row -->
         </div>
    
-    </div>
+    </div>  
 
 </body>
 </html>

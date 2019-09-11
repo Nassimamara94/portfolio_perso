@@ -75,15 +75,11 @@ require_once("include/header.php");
 <p>
   Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vero hic? Tempore eos a voluptatibus porro illum inventore voluptas delectus soluta, quam at aperiam illo, unde ipsam sint, excepturi impedit.
 </p>
-<p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vero hic? Tempore eos a voluptatibus porro illum inventore voluptas delectus soluta, quam at aperiam illo, unde ipsam sint, excepturi impedit.
-</p>
-<p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vero hic? Tempore eos a voluptatibus porro illum inventore voluptas delectus soluta, quam at aperiam illo, unde ipsam sint, excepturi impedit.
-</p>
-<p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vero hic? Tempore eos a voluptatibus porro illum inventore voluptas delectus soluta, quam at aperiam illo, unde ipsam sint, excepturi impedit.
-</p>
+<?php while($affichPhoto = $data->fetch(PDO::FETCH_ASSOC)):?>
+
+    <img src="<?=$affichPhoto['photo']?>" class="imgTravaux col-md-3 petite">
+    <?php endwhile; ?>
+    
 
 </div>
 </div>
