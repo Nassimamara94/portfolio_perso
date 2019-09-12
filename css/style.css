@@ -1,3 +1,4 @@
+
 @import url(https://fonts.googleapis.com/css?family=Lato:900);
 /*style.css*/
 
@@ -8,13 +9,13 @@
     margin: 0;
 }
 /* font général  */
-@font-face {
-        font-family :brushield;
-        src : url(../font/brushield/Brushield\ italic.ttf);
-}
-@media all and (max-width:768px) /*si l’écran du terminal utilisé par le visiteur est inférieur à 768px */
+/* @font-face {
+    font-family: 'Satisfy', cursive;
+    font-family: 'Lato', sans-serif; 
+} */
+/* @media all and (max-width:768px) /*si l’écran du terminal utilisé par le visiteur est inférieur à 768px */
 
-{
+/* {
 
  #block1{
     height: 100vh;
@@ -23,25 +24,8 @@
  #block2{
     height: 50vh;
      }   
-
-}
-
-/* @media all and (min-width:768px and max-width:1024px) 
-
-{
- #block1{
-    height: 100vh;
-     }   
-
- #block2{
-    height: 50vh;
-     }   
-
 
 } */
-
-
-
 
 
 header{
@@ -49,8 +33,9 @@ header{
     padding:0;
 }
 body{
-    font-family: 'Roboto', sans-serif;
+    /* font-family: 'Roboto', sans-serif; */
     color: white;
+    font-family: 'Lato', sans-serif; 
     /* background-color: black; */
 }
 /*--------------------------------------------------
@@ -77,10 +62,12 @@ ZONING page d'accueil*/
 .about{
   position:absolute;
   top:40%;
-  font-size:45px;
-  font-family: 'brushield';
-  margin-left: 40%;
-  font-family :brushield;
+  font-size:30px;
+  font-family: 'Lato', sans-serif;
+
+}
+.zindex {
+    z-index: 1;
 }
 .glow {
   position:absolute;
@@ -88,11 +75,13 @@ ZONING page d'accueil*/
   font-size: 50px;
   /* color: rgb(255, 255, 255); */
   text-align: center;
-  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  /* -webkit-animation: glow 1s ease-in-out infinite alternate;
   -moz-animation: glow 1s ease-in-out infinite alternate;
-  animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate; */
   margin-left: 40%;
-  font-family :brushield;
+  font-family: 'Satisfy', cursive;
+  background-color: rgba(63, 127, 191, 0.5);
+  /* color: rgba(63, 127, 191, 0.5); */
 }
 
 
@@ -122,12 +111,11 @@ ZONING page d'accueil*/
     height: 50vh;
     width: 100vw;
 }
-.contact_title{
+/* .contact_title{
     position:absolute;
     top:40%;
     margin-left:40%;
-    font-family :brushield;
-}
+} */
 /* fin partie A propos */
 
 #sBlockb{
@@ -161,6 +149,9 @@ ZONING page d'accueil*/
 .block{
     margin-left:35%;
     top:20px;
+}
+.partie2{
+    top:80%;
 }
 /*-----------------------------------------------
  fin ZONING page d'accueil */
@@ -207,7 +198,6 @@ Page Contact */
     height:100vh;
 }
 .formulaire_title{
-     font-family :brushield;
 }
 hr{
     cursor: default;

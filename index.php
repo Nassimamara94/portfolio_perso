@@ -9,7 +9,9 @@
     <!-- lien Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- lien perso css-->
+    <!-- lien typo css-->
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Satisfy&display=swap" rel="stylesheet"> 
+    <!-- lien perso css -->
     <link rel="stylesheet" href="css/style.css">
     <!-- lien de mon icone-->
     <link rel="icon" href="https://img.icons8.com/ios/420/nfc-n-filled.png" type="image/png"/>
@@ -23,32 +25,31 @@
             <div class="col-md-6 col-sm-12 col-xs-12" id="block1">
 
                 <img src="image/Space_Debris-ESA.jpg" alt="routes" style="height:100%;width:100%;">
-            <h1 class="glow">Nassim Amara<br>
+            <h1 class="glow p-4">Nassim Amara<br>
                <a href="../portfolio_perso/admin/connexion.php" target="_blank" id="connect">Développeur web Junior<br></a>
-               Bienvenue sur mon portfolio 
             </h1>
              <!-- <hr class="bg-dark" hidden> -->
        
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12" id="block2">
+            <h2 class="about zindex"><a href="about.php" target="_blank">  À Propos</a></h2>
                 <div class="row">
                     <div class="col-md-12" id="sBlocka">
-                        <a href="about.php" target="_blank"> <h1 class="about">A Propos</h1></a>
                     </div>
                 </div>
                 <!-- je sépare une div en 4 partie -->
                 <div class="row">
                     <div class="col-md-6 col-sm-6 col-xs-6" id="sBlockb">
-                       <a href="formation.php" target="_blank"> <h1 class="about">Formation</h1></a>
+                       <a href="formation.php" target="_blank"> <h2 class="about partie2">Formations</h2></a>
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-6" id="sBlockc">
-                         <a href="competence.php" target="_blank"> <h1 class="about">Compétence</h1></a>
+                         <a href="competence.php" target="_blank"> <h2 class="about partie2">Compétences</h2></a>
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-6" id="sBlockd">
-                         <a href="projects.php" target="_blank"> <h1 class="about">Projets</h1></a>
+                         <a href="projects.php" target="_blank"> <h2 class="about partie2">Projets</h2></a>
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-6" id="sBlocke">
-                         <a href="contact.php" target="_blank"> <h1 class="contact_title">Contact</h1></a>
+                         <a href="contact.php" target="_blank"> <h2 class="about partie2">Contact</h2></a>
                     </div>
                 </div>
             </div>

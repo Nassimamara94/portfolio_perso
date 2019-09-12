@@ -69,8 +69,7 @@ $donnees=$bdd->query("SELECT * FROM projects ORDER BY id_project DESC");
 </main>
 
 
-
 <!-- j'appelle la page footer -->
 <?php 
-require_once "include/footer.php"
+require_once("include/footer.php");
 ?>

@@ -36,21 +36,29 @@ require_once("init.php");
   <nav class="navbar transparent navbar-expand-lg fixed-top">
   
     <div class="container-fluid">
-      <a class="navbar-brand" href="#"><strong>Navbar</strong></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="index.php">Accueil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">A propos</a>
+            <a class="nav-link" href="about.php">A propos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Profile</a>
+            <a class="nav-link" href="formation.php">Formations</a>
+          </li>
+        </ul>
+        <li class="nav-item">
+            <a class="nav-link" href="formation.php">Compétences</a>
+          </li>
+        </ul>
+        <li class="nav-item">
+            <a class="nav-link" href="formation.php">Projets</a>
+          </li>
+        </ul>
+        <li class="nav-item">
+            <a class="nav-link" href="formation.php">Contact</a>
           </li>
         </ul>
       </div>

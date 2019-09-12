@@ -35,3 +35,6 @@ foreach($_GET as $key => $value)
 // strip_tags() --> supprime les balises HTML
 // trim() --> supprime les espaces en début et fin de chaine
 
+// -------- INCLUSIONS
+// on inclus directement le fichier fonction.php dans init,celà evitera de l'appeler sur chaque page
+require_once("fonction.php"); 

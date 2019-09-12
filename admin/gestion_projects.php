@@ -2,14 +2,14 @@
     require_once('../include/init.php');// 1 - CONNEXION BDD
 
     // II - je m'occupe du traitement PHP
-
     extract($_POST); // importe les variable de la méthode POST
     extract($_GET);
 
-
-
-
-
+    // si l'internaute n'est pas connecté et n'est pas ADMIN, il n'a rien à faire ici, on le redirige vers la page index.php
+    if(!internauteEstConnecteEtEstAdmin())
+     {
+     header("Location:" . URL . "index.php");
+    }
 
     //--------SUPPRESSION PROJET------------
 
@@ -25,13 +25,76 @@
 
         $_GET['action'] = 'affichage'; // on redirige vers l'affichage des projets
 
-        $validate .= "<div class='alert alert-success col-md-6 offset-md-3 text-center'>Le produit N° <strong$id_project</strong> a bien été supprimer !! </div>";
+        $validate .= "<div class='alert alert-success col-md-6 offset-md-3 text-center'>Le produit N° <strong>$id_project</strong> a bien été supprimer !! </div>";
+    } // fin requete suppression
+   
+//---------------ENREGISTREMENT PRODUIT
+
+if($_POST) //début if($_POST)
+{
+    $photo_bdd = '';
+    if(isset($_GET['action']) && $_GET['action'] == 'modification') // si dans l'url j'ai l'indice modification alors je clique sur modif et je rentre dans la condition....
+    {
+        $photo_bdd = $photo_actuelle; // si on souhaite conserver la même photo en cas de modification, on affecte la valeur du champ photo 'hidden', c'est à dire l'URL de la photo selectionnée en BDD,$hoto permet d'insérer l'url de la photo ds la bdd
+    }
+
+    if(!empty($_FILES['pj_photo']['name'])) // on vérifie que l'indice 'name' dans la surperglobale $_FILES n'est pas vide, celà veut dire que l'on a bien uploader une photo
+    {
+        $nom_photo = $reference . '-' . $_FILES['pj_photo']['name']; // on redéfinit le nom de la photo en concaténant la référence saisie dans le formulaire avec le nom de la photo
+        echo $nom_photo . '<br>';
+
+        $photo_bdd = URL . "pj_photo/$nom_photo"; // on définit l'URL de la photo, c'est ce que l'on conservera en BDD
+        echo $photo_bdd . ' <br>';
+
+        $photo_dossier = RACINE_SITE  . "pj_photo/$nom_photo"; // on définit le chemin physique de la photo sur le disque dur du serveur, c'est ce qui nous permettra de copier la photo dans le dossier PHOTO
+        echo $photo_dossier . '<br>';
+
+        copy($_FILES['pj_photo']['tmp_name'], $photo_dossier); // copy() est une fonction prédéfinie qui permet de copier la photo dans le dossier PHOTO 
+        // arguments : copy(nom_temporaire_photo, chemin de destination)
 
     }
-    // fin requete suppression
+
+   // Ajout Projet
+
+   if(isset($_GET['action']) && $_GET['action'] == 'ajout')
+   {
+       $data_insert = $bdd->prepare("INSERT INTO projects
+       (pj_title,pj_description,pj_photo) VALUES (:pj_title,:pj_description,:pj_photo)");
+
+       $_GET['action'] = 'affichage';
+
+       $validate .= "<div class='alert alert-success col-md-6 offset-md-3 text-center'>Le projet <strong>$pj_title</strong> a bien été ajouté !!</div>"; 
+   }
+   else
+   {
+       // requete update
+   
+       $data_insert = $bdd->prepare("UPDATE projects SET pj_title = :pj_title, pj_description = :pj_description, pj_photo WHERE id_project = $id_project");
+       
+       $_GET['action'] = 'affichage';
+
+       $validate .= "<div class='alert alert-success col-md-6 offset-md-3 text-center'>Le projet  n° <strong>$id_project</strong> a bien été modifié !!</div>"; 
+   }
+   
+   foreach($_POST as $key => $value)
+   {
+       if($key != 'pj_photo_actuelle') // on ejecte le champs 'hidden' de la photo
+       {
+           $data_insert->bindValue(":$key", $value, PDO::PARAM_STR); 
+       } 
+   }
+   $data_insert->bindValue(":pj_photo", $photo_bdd, PDO::PARAM_STR); 
+   $data_insert->execute();
+
+ } //fin if($_POST)
+
+require_once('../include/header.php'); // le '../' permet de sortir d'un fichier pour y revenir
+echo '<pre>'; print_r($_POST); echo'</pre>';
+// $_FILES: superglobale qui permet de véhiculer les informations d'un fichier uploader
+///echo '<pre>'; print_r($_FILES); echo'</pre>';
 
 
-
+// AFFICHAGE PROJETS
 
 
     // 1 -  Je récupère les infos pour la modification
@@ -49,6 +112,7 @@
         }
         
     //---insertion en bdd
+
     // if($_POST){
     if(empty($titre_projet)||iconv_strlen($titre_projet)<2||iconv_strlen($titre_projet)>100){
     $msgTitre.='<span class=" alert-warning text-danger"> ** Saisissez un titre valide (100 caractère max)</span>';
@@ -61,6 +125,7 @@
     }
 
     //------------j'insert en bdd-------
+
     $donnees=$bdd->prepare("REPLACE INTO projets VALUES (:id_projet, :titre_projet, :liens, :contenu)", array(
                 ':id_projet' => $_POST['id_projet'],
                 ':titre_projet' => $_POST['titre_projet'],
@@ -75,18 +140,11 @@
         $successProjet .= '<div class="alert alert-success">L\'enregistrement a bien été réalisé en BDD.</div>';
     }
 
-
-
-
-
-
-
-
-
-
-
+//---------------ENREGISTREMENT PROJET
+if($_POST)
+{
         $photo_bdd = '';
-        if(isset($_GET['action']) && $_GET['action'] == 'modification')
+        if(isset($_GET['action']) && $_GET['action'] == 'modification')// si dans l'url j'ai l'indice modification alors je clique sur modif et je rentre dans la condition....
         {
             $photo_bdd = $photo_actuelle; // si on souhaite conserver la même photo en cas de modification, on affecte la valeur du champ photo 'hidden', c'est à dire l'URL de la photo selectionnée en BDD
         }
@@ -137,7 +195,7 @@
         $data_insert->bindValue(":pj_photo", $photo_bdd, PDO::PARAM_STR); 
         $data_insert->execute();
 
-    }// fin $_POST
+}
 
     //-----------------AFFICHAGE DES PROJETS    
     $contenu =''; 
@@ -151,14 +209,16 @@
         $contenu .= '<td  scope="col" class="array-article  text-center"><img src="../img/'.$projects['pj_photo'].'">"</td>';
 
         $contenu .= '<td><a href="?action=modif&id='.$projects['id_project'] .'"><i class="fas fa-pen text-light"></i></a></td>';
-        $contenu .= '<td  scope="col" class="array-article  text-center"><a class="return"  href="?action=suppression&id=' . $projects['id_project'] . '" onClick="return confirm(\'Etes-vous sûr ?\');"><i
+        $contenu .= '<td  scope="col" class="array-article  text-center"><a class="return"  href="?action=suppression&id_project=' . $projects['id_project'] . '" onClick="return confirm(\'Etes-vous sûr ?\');"><i
     class="fas fas fa-minus-circle text-danger"></i></a></td>';
     
 
 
 
         $contenu .= '</tr>';
-    } // lorsqu'on ira sur la font selectionnée,l'url detectera l'id proposé
+    }
+}
+ // lorsqu'on ira sur la font selectionnée,l'url detectera l'id proposé
 
     //   echo '<pre>'; print_r($id_project); echo '</pre>';
 

@@ -6,7 +6,12 @@ require_once("include/header.php");
 <!-- main -->
  <main class="main_about">
 
-<h1>A propos</h1>
+ <div class="row">
+   <div class="col-md-6">
+   <h1>A propos</h1>
+   </div>
+
+
 
 
 <div id="services" class="service-area">
@@ -100,6 +105,7 @@ require_once("include/header.php");
 
       </main>
 
+      </div> <!-- fin row -->
 <!-- j'appelle la page footer -->
 <?php 
 require_once "include/footer.php"
