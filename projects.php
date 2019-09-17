@@ -31,17 +31,17 @@ $donnees=$bdd->query("SELECT * FROM projects ORDER BY id_project DESC");
         $contenu.='<li class="list-group-item"> entreprise :'.$project['pj_photo'].'</li>';    
         $contenu.='</ul>';
         $contenu.='<div class="card-body">';
-        // $contenu.='<a href="form_experience.php?action=modifier&id='.$xp['id_xp'].'" class="card-link"><i class="fas fa-pen-square text-warning fa-2x"></i></a>';
-        // $contenu.='<a href="?action=supp&id='.$xp['id_xp'].'" class="card-link"><i class="fas fa-trash-alt text-danger fa-2x"></i></a>';
+        $contenu.='<a href="form_experience.php?action=modifier&id='.$xp['id_xp'].'" class="card-link"><i class="fas fa-pen-square text-warning fa-2x"></i></a>';
+        $contenu.='<a href="?action=supp&id='.$xp['id_xp'].'" class="card-link"><i class="fas fa-trash-alt text-danger fa-2x"></i></a>';
         $contenu.='</div>';
         $contenu.='</div>';
 
   
-  // $resultat = $bdd->prepare("SELECT * FROM projects WHERE id_project= :id_project");
-  // $resultat->bindValue(':id_project', $_GET['id_project'], PDO::PARAM_INT);
-  // $resultat->execute();
-  // $projects = $resultat->fetch(PDO::FETCH_ASSOC);
-  // echo '<pre>'; print_r($projects); echo'</pre>';
+  $resultat = $bdd->prepare("SELECT * FROM projects WHERE id_project= :id_project");
+  $resultat->bindValue(':id_project', $_GET['id_project'], PDO::PARAM_INT);
+  $resultat->execute();
+  $projects = $resultat->fetch(PDO::FETCH_ASSOC);
+  echo '<pre>'; print_r($projects); echo'</pre>';
 
   ?>
 
@@ -54,14 +54,14 @@ $donnees=$bdd->query("SELECT * FROM projects ORDER BY id_project DESC");
 <div class="row">
     <?php echo $contenu;?>
 </div>
-<!-- <div class="card mt-20px;" style="width: 18rem;">
+<div class="card mt-20px;" style="width: 18rem;">
   <img src="..." class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">Card title</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
-</div> -->
+</div>
 </div>
 </div>
 

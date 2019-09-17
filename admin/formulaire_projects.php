@@ -7,51 +7,68 @@ extract($_POST); // importe les variable de la méthode POST
 extract($_GET);
 $pj_titleError ='';
 $pj_descriptionError ='';
-$pj_PhotoError ='';
+$pj_lienError ='';
+$successProject ="";
+$photo_actuelle='';
 
 $validate ='';
+
+// 1 -  Je récupère les infos pour la modification
+if(isset($_GET['action']) && $_GET['action'] == 'modif' && isset($_GET['id'])){
+    $req = $bdd->prepare("SELECT * FROM projects WHERE id_project = :id_project");
+    $req->bindParam(':id_project', $_GET['id']);
+    $req->execute();
+
+    if($req->rowCount() > 0){
+        //Je récupère des infos en BDD pour afficher dans le formulaire de modification
+        $project_replace = $req->fetch(PDO::FETCH_ASSOC);
+    }
+}//FIN if(isset($_GET['action']) && $_GET['action'] == 'update'
  
 // Vérification de mes champs
 
 if($_POST){ // si on valide le formulaire, on entre dans le IF
 
 
-
-    if (strlen ($pj_title) < 2 || strlen($pj_title) > 40) {
+    
+    if( empty($pj_title) ||strlen($pj_title) < 2 || strlen($pj_title) > 40) {
        $pj_titleError .= '<span class="col text-warning text-center"> Saisissez un titre valide entre 2 et  40 caractères max</span>';
     }
     
     if(empty($pj_description) || iconv_strlen($pj_description) < 2 || iconv_strlen($pj_description) > 200) {
          $pj_descriptionError .= '<span class="col text-warning text-center"> Ce Champs est obligatoire</span>';
     }
-     if(empty($pj_photo)){
-        $pj_PhotoError  .= '<span class="col text-warning text-center"> photo non Valide</span>';
+     if(empty($pj_lien) || !filter_var($pj_lien, FILTER_VALIDATE_URL)){
+        $pj_lienError  .= '<span class="col text-warning text-center">URL non valide</span>';
      }
 
-     if(empty($pj_titleError) && empty($pj_descriptionError) && empty($pj_PhotoError)){
+        if(empty($pj_titleError) && empty($pj_descriptionError) && empty($pj_lienError) ){ 
 
+        foreach($_POST as $key => $value){
+            $_POST[$key] = strip_tags(trim($value));
+            // strip_tags() --> supprime les balises HTML
+            // trim() --> supprime les espaces en début et fin de chaine
+        }
 
-        //requête de protection SQL
-        foreach($_POST as $key => $value)
-{
-    $_POST[$key] = strip_tags(trim($value));
-    // strip_tags() --> supprime les balises HTML
-// trim() --> supprime les espaces en début et fin de chaine
-}
+ // requête de modification et d'enregistrement en BDD
 
+        $donnees=$bdd->prepare("REPLACE INTO projects VALUES (:id_project, :pj_title, :pj_description, :pj_lien)", array(
+            ':id_project' => $_POST['id_project'],
+            ':pj_title' => $_POST['pj_title'],
+            ':pj_description' => $_POST['pj_description'],
+            ':pj_lien' => $_POST['pj_lien'],
+        ));
 
+        $donnees->bindValue(':id_project', $_POST['id_project'],PDO::PARAM_INT);
+        $donnees->bindValue(':pj_title', $_POST['pj_title'],PDO::PARAM_STR);
+        $donnees->bindValue(':pj_description',$_POST['pj_description'],PDO::PARAM_STR);
+        $donnees->bindValue(':pj_lien', $_POST['pj_lien'],PDO::PARAM_STR);
+        $donnees->execute();
+    $successProject .= '<div class="alert alert-success">L\'enregistrement a bien été réalisé en BDD.</div>';
 
-
-         // insertion d'un projet dans la table 'projects' (requête préparée)
-         $insertion=$bdd->prepare("INSERT INTO projects (pj_title, pj_description,pj_photo ) VALUES (:pj_title, :pj_description, :pj_photo)");
-
-         $insertion->bindValue(':pj_title',$pj_title,PDO::PARAM_STR);
-         $insertion->bindValue(':pj_description',$pj_description,PDO::PARAM_STR);
-         $insertion->bindValue(':pj_photo',$pj_photo,PDO::PARAM_STR);
-
-         $insertion->execute();
-
+    
      }
+
 } // fin if($_POST)
 
 
@@ -80,29 +97,34 @@ if($_POST){ // si on valide le formulaire, on entre dans le IF
     <title>gestionProjet</title>
 </head>
 <body>
-
-   <h1 class="display-4 text text-center formulaire_projects m-5">Formulaire de mes Projet </h1>
-  
+    <?php if(isset($_GET['action']) && $_GET['action']=='modif' && isset($_GET['id'])){  ?>
+   <h1 class="display-4 text-success text-center formulaire_projects m-5">Modifier un project </h1>
+   <?php } else { ?>
+   <h1 class="display-4 text-info  text-center formulaire_projects m-5">Ajouter un projet </h1>
+  <?php } ?>
  <div class="container"> <!-- début container -->
+
+ <a href="gestion_projects.php" class="btn btn-primary">retour gestion projet</a>
         <form class="col-md-8 offset-md-2 mt-5 mb-5" method="post" >
+            <input type="hidden" name="id_project"  value="<?php echo $project_replace['id_project'] ?? $_POST['id_project'] ?? '' ?>">
            <!-- champs formulaire de mes projet -->
          <div class="form-group">
              <label for="titre">Titre</label>
                 <?php echo $pj_titleError ?>
-                 <input type="text" class="form-control" id="titre" placeholder="Titre" name="pj_title" >
+                 <input type="text" class="form-control" id="titre" placeholder="Titre" name="pj_title" value="<?php echo $project_replace['pj_title'] ?? $_POST['pj_title'] ?? '' ?>">
          </div>
             <div class="form-group">
                 <label for="description">Description</label>
                 <?php echo $pj_descriptionError ?>
-                <textarea class="form-control" name="pj_description" placeholder="description" rows="3"></textarea>
+                <textarea class="form-control" name="pj_description" placeholder="description" rows="3"><?php echo $project_replace['pj_description'] ?? $_POST['pj_description'] ?? '' ?></textarea>
             </div>
             <div class="form-group">
-                <label for="photo">Photo</label>
-                <?php echo $pj_PhotoError ?> 
-               <input type="file" class="form-control" id="photo" name="pj_photo" >
+                <label for="pj_lien">URL</label>
+                <?php echo $pj_lienError ?> 
+               <input type="text" class="form-control"  name="pj_lien"  value="<?php echo $project_replace['pj_lien'] ?? $_POST['pj_lien'] ?? '' ?>">
             </div>
 
-             <button type="submit" name="connexion" class="btn btn-secondary col-md-12" style="background-color:#ffffff31" >Ajout</button>
+             <button type="submit" name="connexion" class="btn btn-secondary col-md-12 bg-primary">Ajout</button>
            
         </form>
  </div> <!-- fin container -->
