@@ -1,41 +1,14 @@
 <?php
 require_once("../include/init.php");
-require_once("../include/header.php");
-extract($_POST);
-
-// si la session est vide, on renvoie l'utilisateur vers la page d'index
-// if(empty($_SESSION)){
-//   header("Location: ../index.php");
-
-// }
-// if(internauteEstConnecte()) // si l'internaute est connecté,il n'a rien à faire sur la page connexion,on le redirige vers sa page profil
-// {
-//     header("Location: profil.php"); 
-// }
-
-// Si l'indice 'action' est définit dans l'URL et qu'il  a comme valeur 'deconnexion',cela veut dire que l'on a cliqué sur le lien 'déconnexion' du coup on supprime le fichier session
-// if (isset($_GET['action']) && $_GET['action'] == 'deconnexion')
-//  {
-//     unset($_SESSION);
-//     session_destroy();
-//     header('Location:../index.php');
-//     // echo "<pre>";var_dump($admin);echo "</pre>";
-// }
-
-
 // Je me connecte à ma BDD
 // a-j'appel ma table admin
 $resultat=$bdd->query("SELECT * FROM admin");
 // b- je manipule les objets de ma table admin
 $admin=$resultat->fetch(PDO::FETCH_ASSOC);
 // Importe les variables dans la table des symboles 
-
+extract($_POST);
 $error ='';
 $error_pseudo ='';
-
-
-
-
 // je fais les vérification du form et des champs 
 
 if($_POST)

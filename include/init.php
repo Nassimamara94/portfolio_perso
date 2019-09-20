@@ -2,7 +2,7 @@
  // fichier d'initialisation du site
 
 // connexion à la BDD
-        $bdd = new PDO('mysql:host=localhost;dbname=siteperso', 'root', '', array(PDO::ATTR_ERRMODE => PDO:: ERRMODE_WARNING, PDO:: MYSQL_ATTR_INIT_COMMAND =>'SET NAMES utf8'));
+        $bdd = new PDO('mysql:host=localhost;dbname=siteperso','root', '', array(PDO::ATTR_ERRMODE => PDO:: ERRMODE_WARNING, PDO:: MYSQL_ATTR_INIT_COMMAND =>'SET NAMES utf8'));
 
 
 //----------------------------SESSION---------------------
@@ -10,7 +10,7 @@ session_start();
 
 //---------------------------CHEMIN-----------------------
 define("RACINE_SITE", $_SERVER['DOCUMENT_ROOT'] . '/production_collectif/portfolio_perso/');
-define("URL", "http://localhost/production_collectif/portfolio_perso/");
+define("URL", "");
 
 // define("URL","http://siteperso/");
 
@@ -35,6 +35,3 @@ foreach($_GET as $key => $value)
 // strip_tags() --> supprime les balises HTML
 // trim() --> supprime les espaces en début et fin de chaine
 
-// -------- INCLUSIONS
-// on inclus directement le fichier fonction.php dans init,celà evitera de l'appeler sur chaque page
-require_once("fonction.php"); 

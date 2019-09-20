@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -25,8 +24,7 @@
             <div class="col-md-6 col-sm-12 col-xs-12" id="block1">
 
                 <img src="image/Space_Debris-ESA.jpg" alt="routes" style="height:100%;width:100%;">
-            <h1 class="glow p-4">Nassim Amara<br>
-               <a href="admin/connexion.php" target="_blank" id="connect">Développeur web Junior<br></a>
+            <h1 class="glow p-4">Nassim Amara<br>Développeur web Junior<a href="admin/connexion.php" target="_blank" id="connect"><span>.</span><br></a>
             </h1>
              <!-- <hr class="bg-dark" hidden> -->
        

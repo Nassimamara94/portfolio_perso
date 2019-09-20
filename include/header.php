@@ -33,31 +33,27 @@ require_once("init.php");
 <header>
   
       <!--Main Navigation-->
-  <nav class="navbar transparent navbar-expand-lg fixed-top">
+  <nav class="navbar transparent navbar-expand-lg">
   
     <div class="container-fluid">
-
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="../index.php">Accueil</a>
+            <a class="nav-link" href="index.php">Accueil <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../about.php">A propos</a>
+            <a class="nav-link" href="about.php">A propos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="formation.php">Formations</a>
+            <a class="nav-link" href="formation.php">Formation</a>
           </li>
-        </ul>
-        <li class="nav-item">
-            <a class="nav-link" href="compétences.php">Compétences</a>
+            <li class="nav-item">
+            <a class="nav-link" href="competence.php">Compétences</a>
           </li>
-        </ul>
-        <li class="nav-item">
+           <li class="nav-item">
             <a class="nav-link" href="projects.php">Projets</a>
           </li>
-        </ul>
-        <li class="nav-item">
+           <li class="nav-item">
             <a class="nav-link" href="contact.php">Contact</a>
           </li>
         </ul>

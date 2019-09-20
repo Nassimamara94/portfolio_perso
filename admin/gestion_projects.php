@@ -54,7 +54,7 @@
    
 
 
-require_once('../include/header.php'); 
+require_once('../include/header2.php'); 
 
 echo '<pre>'; print_r($_POST); echo'</pre>';
 // $_FILES: superglobale qui permet de véhiculer les informations d'un fichier uploader

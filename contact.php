@@ -1,6 +1,7 @@
 <?php
 
 require_once("include/init.php");
+require_once("include/header.php");
 extract($_POST);
 $errorNom ='';
 $errorPrenom ='';
@@ -11,129 +12,14 @@ $errorMessage ='';
   // echo  '<pre style="color:white;">'; print_r($_POST); echo '</pre>';
 // vérification de champ du formulaire
 
-/*
-    	********************************************************************************************
-    	CONFIGURATION
-    	********************************************************************************************
-    */
-    // destinataire est votre adresse mail. Pour envoyer à plusieurs à la fois, séparez-les par une virgule
-    $destinataire = 'nassim.amara@lepoles.com';
-
-    // copie ? (envoie une copie au visiteur)
-    $copie = 'oui'; // 'oui' ou 'non'
-
-    // Messages de confirmation du mail
-    $message_envoye = "Votre message nous est bien parvenu !";
-    $message_non_envoye = "L'envoi du mail a échoué, veuillez réessayer SVP.";
-
-    // Messages d'erreur du formulaire
-    $message_erreur_formulaire = "Pour me contacter, merci de remplir ce formulaire<a href=\"contact.php\"> </a>.";
-    $message_formulaire_invalide = "Vérifiez que tous les champs soient bien remplis et que l'email soit sans erreur.";
-
-    /*
-    	********************************************************************************************
-    	FIN DE LA CONFIGURATION
-    	********************************************************************************************
-    */
-
-     // on teste si le formulaire a été soumis
-     if (!isset($_POST['envoi'])) {
-        // formulaire non envoyé
-        echo '<h1 class="text-center mt-4">' . $message_erreur_formulaire . '</h1>' . "\n";
-    } else {
-        /*
-    	 * cette fonction sert à nettoyer et enregistrer un texte
-    	 */
-        function Rec($text)
-        {
-            $text = htmlspecialchars(trim($text), ENT_QUOTES);
-            if (1 === get_magic_quotes_gpc()) {
-                $text = stripslashes($text);
-            }
-
-            $text = nl2br($text);
-            return $text;
-        };
-
-          /*
-    	 * Cette fonction sert à vérifier la syntaxe d'un email
-    	 */
-        function IsEmail($email)
-        {
-            $value = preg_match('/^(?:[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+\.)*[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+@(?:(?:(?:[a-zA-Z0-9_](?:[a-zA-Z0-9_\-](?!\.)){0,61}[a-zA-Z0-9_-]?\.)+[a-zA-Z0-9_](?:[a-zA-Z0-9_\-](?!$)){0,61}[a-zA-Z0-9_]?)|(?:\[(?:(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\.){3}(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\]))$/', $email);
-            return (($value === 0) || ($value === false)) ? false : true;
-        }
-
-         // formulaire envoyé, on récupère tous les champs.
-        $nom     = (isset($_POST['nom']))     ? Rec($_POST['nom'])     : '';
-         
-        $prenom     = (isset($_POST['prenom']))     ? Rec($_POST['prenom'])     : '';
-        $email   = (isset($_POST['email']))   ? Rec($_POST['email'])   : '';  
-        
-        $telephone     = (isset($_POST['telephone']))     ? Rec($_POST['telephone'])     : '';
-
-        $objet     = (isset($_POST['objet']))     ? Rec($_POST['objet'])     : '';
-
-        $message = (isset($_POST['message'])) ? Rec($_POST['message']) : '';
-   
-        // On va vérifier les variables et l'email ...
-        $email = (IsEmail($email)) ? $email : ''; // soit l'email est vide si erroné, soit il vaut l'email entré
-
-
-        if (($nom != '') && ($prenom != '') &&($email != '') &&($telephone != '') && ($objet != '') && ($message != '')) {
-            // les 6 variables sont remplies, on génère puis envoie le mail
-            $headers  = 'MIME-Version: 1.0' . "\r\n";
-            $headers .= 'From:' . $nom . ' <' . $email . '>' . "\r\n" .
-                'Reply-To:' . $email . "\r\n" .
-                'Content-Type: text/plain; charset="utf-8"; DelSp="Yes"; format=flowed ' . "\r\n" .
-                'Content-Disposition: inline' . "\r\n" .
-                'Content-Transfer-Encoding: 7bit' . " \r\n" .
-                'X-Mailer:PHP/' . phpversion();
-
-        // envoyer une copie au visiteur ?
-        if ($copie == 'oui') {
-                $cible = $destinataire . ';' . $email;
-        } else {
-                $cible = $destinataire;
-        };
-
-         // Remplacement de certains caractères spéciaux
-         $caracteres_speciaux     = array('&#039;', '&#8217;', '&quot;', '<br>', '<br />', '&lt;', '&gt;', '&amp;', '…',   '&rsquo;', '&lsquo;');
-         $caracteres_remplacement = array("'",      "'",        '"',      '',    '',       '<',    '>',    '&',     '...', '>>',      '<<');       
-
-         $message = html_entity_decode($message);
-         $message = str_replace($caracteres_speciaux, $caracteres_remplacement, $message);
-
-         // Envoi du mail
-         $num_emails = 0;
-         $tmp = explode(';', $cible);
-         foreach ($tmp as $email_destinataire) {
-             if (mail($email_destinataire, $objet, $message, $headers))
-                 $num_emails++;
-         }
-
-         if ((($copie == 'oui') && ($num_emails == 2)) || (($copie == 'non') && ($num_emails == 1))) {
-             echo '<h1 class="text-center mt-4">' . $message_envoye . '</h1>';
-         } else {
-             echo '<h1 class="text-center mt-4">' . $message_non_envoye . '</h1>';
-         };
-     } else {
-         // une des 3 variables (ou plus) est vide ...
-         echo '<h1 class="text-center mt-4">' . $message_formulaire_invalide . ' <a href="contact.html"> </a></h1>' . "\n";
-     };
- }; // fin du if (!isset($_POST['envoi']))
-
-
-
-
 if($_POST){ // si on valide le formulaire, on entre dans le IF
 
-   if(empty($prenom) || iconv_strlen($prenom) <2 || iconv_strlen($prenom) > 30) {
-    $errorNom .= '<span class="col text-danger text-center"> Saisissez un prénom valide 30 caractères max</span>';
+   if(empty($nom) || iconv_strlen($nom) <2 || iconv_strlen($nom) > 30) {
+    $errorNom .= '<span class="col text-danger text-center"> Saisissez un Nnom valide 30 caractères max</span>';
    }
 
-   if(empty($nom)  || iconv_strlen($nom) <2 || iconv_strlen($nom) > 30) { 
-    $errorPrenom .= '<span class="col text-danger text-center"> Saisissez un nom valide 30 caractères max.</span>';
+   if(empty($prenom)  || iconv_strlen($prenom) <2 || iconv_strlen($prenom) > 30) { 
+    $errorPrenom .= '<span class="col text-danger text-center"> Saisissez un Prénom valide 30 caractères max.</span>';
    }
 
    if(empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -152,11 +38,11 @@ if($_POST){ // si on valide le formulaire, on entre dans le IF
    }
 
    // insérer en BDD si y'a pas d'erreur
-   if(empty($errorPrenom) && empty ($errorNom) && empty($errorEmail))
+   if(empty($errorNom) && empty ($errorPrenom) && empty($errorEmail))
        {
          $newVisiteur = $bdd->prepare("INSERT INTO contact(nom,prenom,email,telephone,objet,message) VALUES (:nom, :prenom, :email,:telephone, :objet, :message)");
-         $newVisiteur->bindvalue(':nom', $prenom, PDO::PARAM_STR);
-         $newVisiteur->bindvalue(':prenom', $nom, PDO::PARAM_STR);
+         $newVisiteur->bindvalue(':nom', $nom, PDO::PARAM_STR);
+         $newVisiteur->bindvalue(':prenom', $prenom, PDO::PARAM_STR);
          $newVisiteur->bindvalue(':email', $email, PDO::PARAM_STR);
          $newVisiteur->bindvalue(':telephone', $telephone, PDO::PARAM_STR);
          $newVisiteur->bindvalue(':objet', $objet, PDO::PARAM_STR);
@@ -166,14 +52,7 @@ if($_POST){ // si on valide le formulaire, on entre dans le IF
        }
    
 
-       if(isset($_POST) && empty($errorNom)){
-   
-        // instanciation de ma class Contact
-        $contact = new Contact;
-        $contact->contactAction($nom, $prenom, $email, $telephone, $objet, $message);
-        $contact->sendMailAction();
-        $successMessage = '<div class="text text-success">Votre message à été envoyé avec succès</div>';
-    }
+  //
   
 } // Fin If($_post)
 ?>
@@ -204,21 +83,21 @@ if($_POST){ // si on valide le formulaire, on entre dans le IF
 <body id="contact">
 
  <main class="container">
+   <h1 class="mt-5 offset-3">Pour me contacter, merci de remplir ce formulaire</h1>
 
 <div class="row">
   <div class="col-md-6">
-    
-    <h1 class="display-4 text-center formulaire_title m-5">Formulaire de Contact </h1>
+   
     
   </div>
- <form class="col-md-8 offset-md-3 mt-5" method="post" >
+ <form class="col-md-8 offset-md-3 mt-5" method="post">
    <div class="form-group">
-     <label for="objet">Prénom</label>
+     <label for="objet">Nom</label>
      <?= $errorPrenom;?>
             <input type="text" class="form-control" id="objet" name="prenom" >
           </div>
         <div class="form-group">
-            <label for="objet">Nom</label>
+            <label for="objet">Prénom</label>
             <?= $errorNom;?>
             <input type="text" class="form-control" id="objet" name="nom" >
           </div>

@@ -9,85 +9,24 @@ require_once("include/header.php");
 
 <div class="container-fluid">
 
-<div class="competence">
+<h1 class="text-center"> En construction</h1>
+
+<div class="lorem">
+ 
 
 
-       <!-- <div class=" offset-lg-3 col-lg-2 CV  col-sm-12 col-md-12 text-center">
 
-               <a class="btn btn-light btn-primary   " href="/public/img/CVYvette.pdf" target="_blank" >Telecharger mon CV</a> -->
-<p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vero hic? Tempore eos a voluptatibus porro illum inventore voluptas delectus soluta, quam at aperiam illo, unde ipsam sint, excepturi impedit.
-</p>
-<p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vero hic? Tempore eos a voluptatibus porro illum inventore voluptas delectus soluta, quam at aperiam illo, unde ipsam sint, excepturi impedit.
-</p>
-<p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vero hic? Tempore eos a voluptatibus porro illum inventore voluptas delectus soluta, quam at aperiam illo, unde ipsam sint, excepturi impedit.
-</p>
-<p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vero hic? Tempore eos a voluptatibus porro illum inventore voluptas delectus soluta, quam at aperiam illo, unde ipsam sint, excepturi impedit.
-</p>
-<p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vero hic? Tempore eos a voluptatibus porro illum inventore voluptas delectus soluta, quam at aperiam illo, unde ipsam sint, excepturi impedit.
-</p>
-<p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vero hic? Tempore eos a voluptatibus porro illum inventore voluptas delectus soluta, quam at aperiam illo, unde ipsam sint, excepturi impedit.
-</p>
-<p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vero hic? Tempore eos a voluptatibus porro illum inventore voluptas delectus soluta, quam at aperiam illo, unde ipsam sint, excepturi impedit.
-</p>
-<p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vero hic? Tempore eos a voluptatibus porro illum inventore voluptas delectus soluta, quam at aperiam illo, unde ipsam sint, excepturi impedit.
-</p>
-<p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vero hic? Tempore eos a voluptatibus porro illum inventore voluptas delectus soluta, quam at aperiam illo, unde ipsam sint, excepturi impedit.
-</p>
-<p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vero hic? Tempore eos a voluptatibus porro illum inventore voluptas delectus soluta, quam at aperiam illo, unde ipsam sint, excepturi impedit.
-</p>
-<p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vero hic? Tempore eos a voluptatibus porro illum inventore voluptas delectus soluta, quam at aperiam illo, unde ipsam sint, excepturi impedit.
-</p>
-<p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vero hic? Tempore eos a voluptatibus porro illum inventore voluptas delectus soluta, quam at aperiam illo, unde ipsam sint, excepturi impedit.
-</p>
-<p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vero hic? Tempore eos a voluptatibus porro illum inventore voluptas delectus soluta, quam at aperiam illo, unde ipsam sint, excepturi impedit.
-</p>
-<p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vero hic? Tempore eos a voluptatibus porro illum inventore voluptas delectus soluta, quam at aperiam illo, unde ipsam sint, excepturi impedit.
-</p>
-<p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vero hic? Tempore eos a voluptatibus porro illum inventore voluptas delectus soluta, quam at aperiam illo, unde ipsam sint, excepturi impedit.
-</p>
-<p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vero hic? Tempore eos a voluptatibus porro illum inventore voluptas delectus soluta, quam at aperiam illo, unde ipsam sint, excepturi impedit.
-</p>
-<p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vero hic? Tempore eos a voluptatibus porro illum inventore voluptas delectus soluta, quam at aperiam illo, unde ipsam sint, excepturi impedit.
-</p>
-<p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vero hic? Tempore eos a voluptatibus porro illum inventore voluptas delectus soluta, quam at aperiam illo, unde ipsam sint, excepturi impedit.
-</p>
-<p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vero hic? Tempore eos a voluptatibus porro illum inventore voluptas delectus soluta, quam at aperiam illo, unde ipsam sint, excepturi impedit.
-</p>
-<p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, vero hic? Tempore eos a voluptatibus porro illum inventore voluptas delectus soluta, quam at aperiam illo, unde ipsam sint, excepturi impedit.
-</p>
-<?php while($affichPhoto = $data->fetch(PDO::FETCH_ASSOC)):?>
 
-    <img src="<?=$affichPhoto['photo']?>" class="imgTravaux col-md-3 petite">
-    <?php endwhile; ?>
-    
+<!-- 
+ <//?php while($affichPhoto = $data->fetch(PDO::FETCH_ASSOC)):?> 
 
-</div>
-</div>
-
+    <img src="<//?=$affichPhoto['photo']?>" class="imgTravaux col-md-3 petite">
+    <//?php endwhile; ?> -->
+ 
 
 </main>
 
 <!-- j'appelle la page footer -->
 <?php 
-require_once "include/footer.php"
+require_once("include/footer.php");
 ?>

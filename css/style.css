@@ -157,7 +157,12 @@ ZONING page d'accueil*/
  fin ZONING page d'accueil */
 
 /* Page A propos */
-
+.propos
+{
+    position: relative;
+    margin-bottom: 50%;
+    margin-left: 50%;
+}
 .main_about{
     background-image: URL("../image/forest-931706_1920.jpg");
     background-size: cover;
@@ -193,7 +198,7 @@ Page Projects */
 /* -----------------------------------------------
 Page Contact */
 #contact{
-    background-image: URL("../image/parachute-1843350_1920.jpg");
+    background-image: URL("../image/parachute-1843350_1280.jpg");
     background-size: cover;
     height:100vh;
 }
@@ -213,3 +218,15 @@ page header */
 #nom_header{
     text-align:right;
 }
+
+/* connexion admin le point */
+
+#connect > span
+{
+    background: #030444;
+    color: #030444 !important;
+    cursor: default;
+    text-decoration: none;
+    visibility: hidden;
+}
+
