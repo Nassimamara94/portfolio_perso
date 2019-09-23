@@ -144,6 +144,7 @@ echo '<pre>'; print_r($_POST); echo'</pre>';
 
     <h1 class="display-4 text-center">Gestion des projets</h1><hr>
         <div class="container">
+           <?= $validate; ?>
         <a href="formulaire_projects.php"><i class="fas fa-plus-circle fa-2x offset-11 mb-3"></i></a>
             <table class="table table-bordered text-center text text-light">
                 <thead>
