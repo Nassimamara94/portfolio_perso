@@ -8,26 +8,6 @@
     padding: 0;
     margin: 0;
 }
-/* font général  */
-/* @font-face {
-    font-family: 'Satisfy', cursive;
-    font-family: 'Lato', sans-serif; 
-} */
-/* @media all and (max-width:768px) /*si l’écran du terminal utilisé par le visiteur est inférieur à 768px */
-
-/* {
-
- #block1{
-    height: 100vh;
-     }   
-
- #block2{
-    height: 50vh;
-     }   
-
-} */
-
-
 header{
     margin: 0;
     padding:0;
@@ -39,7 +19,6 @@ body{
     /* background-color: black; */
 }
 /*--------------------------------------------------
-
 ZONING page d'accueil*/
 #block1{
     /* background: #000; */
@@ -64,12 +43,11 @@ ZONING page d'accueil*/
   top:40%;
   font-size:30px;
   font-family: 'Lato', sans-serif;
-
 }
 .zindex {
     z-index: 1;
 }
-.glow {
+.titre {
   position:absolute;
   top:40%;
   font-size: 50px;
@@ -84,17 +62,6 @@ ZONING page d'accueil*/
   /* color: rgba(63, 127, 191, 0.5); */
 }
 
-
-
-@-webkit-keyframes glow {
-  from {
-    text-shadow: 0 0 10px rgb(0, 0, 0), 0 0 20px rgb(0, 0, 0), 0 0 30px rgb(0, 0, 0), 0 0 40px rgb(0, 0, 0) 0 50px rgb(0, 0, 0), 0 0 60px rgb(0, 0, 0) 0 70px rgb(0, 0, 0);
-  }
-  
-  to {
-    text-shadow: 0 0 20px #0008CB, 0 0 30px #0008CB, 0 0 40px #0008CB, 0 0 50px #0008CB, 0 0 60px #0008CB, 0 0 70px #0008CB, 0 0 80px #0008CB;
-  }
-}
 /*-------------------------------------------------
  partie A propos */
 #block2{
@@ -202,8 +169,6 @@ Page Contact */
     background-size: cover;
     height:100vh;
 }
-.formulaire_title{
-}
 hr{
     cursor: default;
 }
@@ -218,9 +183,7 @@ page header */
 #nom_header{
     text-align:right;
 }
-
 /* connexion admin le point */
-
 #connect > span
 {
     background: #030444;
@@ -229,12 +192,3 @@ page header */
     text-decoration: none;
     visibility: hidden;
 }
-
-/* responsive des images */
-
-@media only screen and (min-width : 321px) {
-/* Styles pour cette Media Queries */
- #sBlocka{
-     
- }
-} 

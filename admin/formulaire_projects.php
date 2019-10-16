@@ -11,9 +11,7 @@ $pj_descriptionError ='';
 $pj_LienError ='';
 
 $validate ='';
- 
 // 1 -  Je récupère les infos pour la modification
-
 if(isset($_GET['action']) && $_GET['action'] == 'modif' && isset($_GET['id'])){
     $req=$bdd->prepare("SELECT * FROM projects WHERE id_project = :id_project");
     $req->bindParam(':id_project', $_GET['id']);
@@ -24,27 +22,20 @@ if(isset($_GET['action']) && $_GET['action'] == 'modif' && isset($_GET['id'])){
     }//if($req->rowCount() > 0
 }//FIN if(isset($_GET['action']) && $_GET['action'] == 'update'
 
-
-
 // Vérification de mes champs
 
 if($_POST){ // si on valide le formulaire, on entre dans le IF
 
-
-
     if (strlen ($pj_title) < 2 || strlen($pj_title) > 40) {
        $pj_titleError .= '<span class="col text-warning text-center"> Saisissez un titre valide entre 2 et  40 caractères max</span>';
-    }
-    
+    }  
     if(empty($pj_description) || iconv_strlen($pj_description) < 2 || iconv_strlen($pj_description) > 200) {
          $pj_descriptionError .= '<span class="col text-warning text-center"> Ce Champs est obligatoire</span>';
     }
      if(empty($pj_lien) || !filter_var($pj_lien, FILTER_VALIDATE_URL)){
-        $pj_LienError  .= '<span class="col text-warning text-center"> LIEN non Valide</span>';
+        $pj_LienError  .= '<span class="col text-warning text-center"> Lien non Valide</span>';
      }
-
      if(empty($pj_titleError) && empty($pj_descriptionError) && empty($pj_LienError)){
-
 
         //requête de protection SQL
         foreach($_POST as $key => $value){
@@ -54,7 +45,6 @@ if($_POST){ // si on valide le formulaire, on entre dans le IF
             // assainissement des saisies de l'intertnaute
             $_POST[$key] = htmlspecialchars($value, ENT_QUOTES);
     }
-
          // insertion d'un projet dans la table 'projects' (requête préparée)
          $donnees = $bdd->prepare("REPLACE INTO projects VALUES (:id_project, :pj_title, :pj_description, :pj_lien)", array(
              ':id_project' => $_POST['id_project'],
@@ -70,13 +60,10 @@ if($_POST){ // si on valide le formulaire, on entre dans le IF
 
          $donnees->execute();
 
+        header('location:gestion_projects.php');
      }
 } // fin if($_POST)
-
-
-
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -99,7 +86,6 @@ if($_POST){ // si on valide le formulaire, on entre dans le IF
     <title>gestionProjet</title>
 </head>
 <body>
-
    <h1 class="display-4 text text-center formulaire_projects m-5">Formulaire de mes Projet </h1>
   
  <div class="container"> <!-- début container -->
@@ -111,7 +97,6 @@ if($_POST){ // si on valide le formulaire, on entre dans le IF
                 <?php echo $pj_titleError ?>
                  <input type="text" class="form-control" id="titre" placeholder="Titre" name="pj_title" value="<?php echo $project_update['pj_title'] ??
                     $_POST['pj_title'] ?? '' ?>">
-
          </div>
             <div class="form-group">
                 <label for="description">Description</label>
@@ -130,7 +115,5 @@ if($_POST){ // si on valide le formulaire, on entre dans le IF
            
         </form>
  </div> <!-- fin container -->
-
-
 </body>
 </html>

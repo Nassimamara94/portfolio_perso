@@ -1,23 +1,19 @@
     <?php
     require_once('../include/init.php');// 1 - CONNEXION BDD
-
     // II - je m'occupe du traitement PHP
     extract($_POST); // importe les variable de la méthode POST
     extract($_GET);
-
     // si l'internaute n'est pas connecté et n'est pas ADMIN, il n'a rien à faire ici, on le redirige vers la page index.php
-    // if(!internauteEstConnecteEtEstAdmin())
-    //  {
-    //  header("Location:" . URL . "index.php");
-    // }
-
+    if(!internauteEstConnecteEtEstAdmin())
+     {
+     header("Location:" . URL . "index.php");
+    }
 
     //--------SUPPRESSION PROJET------------
 
     // on entre dans le IF seulement dans le cas ou l'on a cliqué sur le bouton suppression
     if(isset($_GET['action']) && $_GET['action'] == 'suppression' && isset($id))
-    { 
-        
+    {      
     // requête de suppression / requete préparée
         $projects_delete = $bdd->prepare("DELETE FROM projects WHERE id_project = :id_project");
         // Je recupere l'id qui se trouve dans l'URL
@@ -28,7 +24,6 @@
 
         $validate .= "<div class='alert alert-success col-md-6 offset-md-3 text-center'>Le produit N° <strong>$id</strong> a bien été supprimer !! </div>";
     } // fin requete suppression
-
 
     //-----------------AFFICHAGE DES PROJETS    
     
@@ -44,79 +39,11 @@
         $contenu .= '<td><a href="formulaire_projects.php?action=modif&id='.$projects['id_project'] .'"><i class="fas fa-pen text-light"></i></a></td>';
         $contenu .= '<td  scope="col" class="array-article  text-center"><a class="return"  href="?action=suppression&id=' . $projects['id_project'] . '" onClick="return confirm(\'Etes-vous sûr ?\');"><i
     class="fas fas fa-minus-circle text-danger"></i></a></td>';
-    
-
-
-
         $contenu .= '</tr>';
     }
-
-   
-
-
 require_once('../include/header2.php'); 
 
 echo '<pre>'; print_r($_POST); echo'</pre>';
-// $_FILES: superglobale qui permet de véhiculer les informations d'un fichier uploader
-///echo '<pre>'; print_r($_FILES); echo'</pre>';
-
-
-// AFFICHAGE PROJETS
-
-
-    // 1 -  Je récupère les infos pour la modification
-
-    // if ($_POST)
-    // { // début $_POST
-
-    //     if(isset($_GET['action']) && $_GET['action'] == 'modifier' && ($_GET['id'])){
-    //     $req = $bdd->prepare("SELECT * FROM projets WHERE id_projet = :id_projet");
-    //     $req->bindParam(':id_projet', $_GET['id']);
-    //     $req->execute();
-    //     if($req->rowCount()> 0){
-    //         //Je récupère des infos en BDD pour afficher dans le formulaire de modification
-    //         $projet_update = $req->fetch(PDO::FETCH_ASSOC);
-    //     }
-        
-    //---insertion en bdd
-
-    // if($_POST){
-//     if(empty($titre_projet)||iconv_strlen($titre_projet)<2||iconv_strlen($titre_projet)>100){
-//     $msgTitre.='<span class=" alert-warning text-danger"> ** Saisissez un titre valide (100 caractère max)</span>';
-//     }
-//     if(empty($contenu) ||iconv_strlen($contenu)>400){
-//     $msgContenu.='<span class="alert-warning text-danger"> ** La description de doit pas dépasser 400 caractères</span>';
-//     }
-//     if(empty($liens) ||!filter_var($liens, FILTER_VALIDATE_URL)){
-//     $msgliens.='<span class="alert-warning text-danger"> ** Saisissez une url valide</span>';
-//     }
-
-//     //------------j'insert en bdd-------
-
-//     $donnees=$bdd->prepare("REPLACE INTO projets VALUES (:id_projet, :titre_projet, :liens, :contenu)", array(
-//                 ':id_projet' => $_POST['id_projet'],
-//                 ':titre_projet' => $_POST['titre_projet'],
-//                 ':contenu' => $_POST['contenu'],
-//         ));
-//         $donnees->bindValue(':id_projet', $_POST['id_projet'],PDO::PARAM_STR);
-//         $donnees->bindValue(':titre_projet', $_POST['titre_projet'],PDO::PARAM_STR);
-//         $donnees->bindValue(':contenu', $_POST['contenu'],PDO::PARAM_STR);
-//         $donnees->execute() ;
-//         $successProjet .= '<div class="alert alert-success">L\'enregistrement a bien été réalisé en BDD.</div>';
-//     }
-
-
-// require_once('../include/header.php'); // le '../' permet de sortir d'un fichier pour y revenir
-// echo '<pre>'; print_r($_POST); echo'</pre>';
-// $_FILES: superglobale qui permet de véhiculer les informations d'un fichier uploader
-///echo '<pre>'; print_r($_FILES); echo'</pre>';
-
-    
-// }
- // lorsqu'on ira sur la font selectionnée,l'url detectera l'id proposé
-
-    //   echo '<pre>'; print_r($id_project); echo '</pre>';
-
     ?> <!-- fermeture de la balise php afin de mettre du html -->
     <!-- affichage de ma table project sous forme de tableau HTml-->
     <!DOCTYPE html>
@@ -154,7 +81,6 @@ echo '<pre>'; print_r($_POST); echo'</pre>';
                     <th scope="col">Description</th>
                     <th scope="col">URL</th>
                     <th colspan="2">action</th>
-
                     </tr>
                     
                 </thead>
@@ -162,11 +88,8 @@ echo '<pre>'; print_r($_POST); echo'</pre>';
         <?php
             echo $contenu;
         ?>
-
     </tbody>
             </table>
         </div> <!-- fin container -->
-
-
     </body>
     </html>
