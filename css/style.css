@@ -104,13 +104,13 @@ ZONING page d'accueil*/
     padding-left:0;
     padding-right:0;
 }
-#sBlocka{
+/* #sBlocka{ */
     /* background:purple; */
-    background-image: url("../image/forest-931706_1920.jpg");
+    /* background-image: url("../image/forest-931706_1920.jpg");
     background-size: cover;
     height: 50vh;
     width: 100vw;
-}
+} */
 /* .contact_title{
     position:absolute;
     top:40%;
@@ -118,34 +118,34 @@ ZONING page d'accueil*/
 } */
 /* fin partie A propos */
 
-#sBlockb{
+/* #sBlockb{ */
     /* background:green; */
-    background-image: url("../image/imageR.jpg");
+    /* background-image: url("../image/imageR.jpg");
     background-size: cover;
     height: 25vh;
     width: 50vw;
-}
-#sBlockc{
+} */
+/* #sBlockc{ */
     /* background:yellow; */
-    background-image: url("../image/milky-way-916523_1280.jpg");
+    /* background-image: url("../image/milky-way-916523_1280.jpg");
     background-size: cover;
     height: 25vh;
     width: 50vw;
-}
-#sBlockd{
+} */
+/* #sBlockd{ */
     /* background:orange; */
-    background-image: url("../image/antelope-canyon-1128815_1280.jpg");
+    /* background-image: url("../image/antelope-canyon-1128815_1280.jpg");
     background-size: cover;
     height: 25vh;
     width: 50vw;
-}
-#sBlocke{
+} */
+/* #sBlocke{ */
     /* background:bisque; */
-    background-image: url("../image/parachute-1843350_1280.jpg");
+    /* background-image: url("../image/parachute-1843350_1280.jpg");
     background-size: cover;
     height: 25vh;
     width: 50vw;
-}
+} */
 .block{
     margin-left:35%;
     top:20px;
