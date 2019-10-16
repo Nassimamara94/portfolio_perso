@@ -7,6 +7,7 @@
 
 //----------------------------SESSION---------------------
 session_start();
+var_dump($_SESSION);
 
 //---------------------------CHEMIN-----------------------
 define("RACINE_SITE", $_SERVER['DOCUMENT_ROOT'] . '/production_collectif/portfolio_perso/');
@@ -23,11 +24,9 @@ $content = ''; // permettra de placer du contenu ou l'on souhaite
 // POST
 foreach($_POST as $key => $value)
 {
-    $_POST[$key] = strip_tags(trim($value));
+    $_POST[$key] = strip_tags(trim($value));   // 'strip_tags', supprime les balises HTML, et 'trim' supprime les espaces en debut et fin de chaine.
 }
-
-// GET
-
+//----------GET
 foreach($_GET as $key => $value)
 {
     $_GET[$key] = strip_tags(trim($value));
@@ -35,3 +34,4 @@ foreach($_GET as $key => $value)
 // strip_tags() --> supprime les balises HTML
 // trim() --> supprime les espaces en début et fin de chaine
 
+// require_once("fonction.php");

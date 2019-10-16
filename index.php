@@ -17,17 +17,14 @@
 </head>
 <body>
     <div class="container-fluid">
-
         <!-- j'ai créer deux div principaux (row) -->
         <div class="row">
             <!-- à l'intérieur de ma row,on met un col-md-6 afin d'avoir la page d'accueil en 2 parties principaux-->
             <div class="col-md-6 col-sm-12 col-xs-12" id="block1">
-
                 <img src="image/Space_Debris-ESA.jpg" alt="routes" style="height:100%;width:100%;">
-            <h1 class="glow p-4">Nassim Amara<br>Développeur web Junior<a href="admin/connexion.php" target="_blank" id="connect"><span>.</span><br></a>
+            <h1 class="titre p-4">Nassim Amara<br>Développeur web Junior<a href="admin/connexion.php" target="_blank" id="connect"><span>.</span><br></a>
             </h1>
              <!-- <hr class="bg-dark" hidden> -->
-       
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12" id="block2">
             <h2 class="about zindex"><a href="about.php" target="_blank">  À Propos</a></h2>
@@ -53,8 +50,6 @@
             </div>
             <!-- fin de la div row -->
         </div>
-   
     </div>  
-
 </body>
 </html>
