@@ -17,19 +17,17 @@
 </head>
 <body>
     <div class="container-fluid">
-
         <!-- j'ai créer deux div principaux (row) -->
         <div class="row">
             <!-- à l'intérieur de ma row,on met un col-md-6 afin d'avoir la page d'accueil en 2 parties principaux-->
-            <div class="col-md-6 col-sm-12 col-xs-12" id="block1">
-
-                <img src="image/Space_Debris-ESA.jpg" alt="routes" style="height:100%;width:100%;">
+            <div class="col-sm-12 col-xs-12 col-md-6" id="block1">
+                <img src="image/Space_Debris-ESA.jpg" class="img-fluid" alt="routes" style="height:100%;width:100%;">
             <h1 class="glow p-4">Nassim Amara<br>Développeur web Junior<a href="admin/connexion.php" target="_blank" id="connect"><span>.</span><br></a>
             </h1>
              <!-- <hr class="bg-dark" hidden> -->
        
             </div>
-            <div class="col-md-6 col-sm-12 col-xs-12" id="block2">
+            <div class="col-sm-12 col-xs-12 col-md-6" id="block2">
             <h2 class="about zindex"><a href="about.php" target="_blank">  À Propos</a></h2>
                 <div class="row">
                     <div class="col-md-12" id="sBlocka">
@@ -38,22 +36,26 @@
                 <!-- je sépare une div en 4 partie -->
                 <div class="row">
                     <div class="col-md-6 col-sm-6 col-xs-6" id="sBlockb">
-                       <a href="formation.php" target="_blank"> <h2 class="about partie2">Formations</h2></a>
+                       <a href="formation.php" target="_blank"> <h2 class="about partie2">Formations</h2>
+                       </a>
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-6" id="sBlockc">
-                         <a href="competence.php" target="_blank"> <h2 class="about partie2">Compétences</h2></a>
+                         <a href="competence.php" target="_blank"> <h2 class="about partie2">Compétences</h2>
+                         </a>
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-6" id="sBlockd">
-                         <a href="projects.php" target="_blank"> <h2 class="about partie2">Projets</h2></a>
+                         <a href="projects.php" target="_blank"> <h2 class="about partie2">Projets</h2>
+                         </a>
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-6" id="sBlocke">
-                         <a href="contact.php" target="_blank"> <h2 class="about partie2">Contact</h2></a>
+                         <a href="contact.php" target="_blank"> <h2 class="about partie2">Contact</h2>
+                         </a>
                     </div>
+                <!-- fin div block2    
                 </div>
             </div>
-            <!-- fin de la div row -->
+        <!-- fin de la div row -->
         </div>
-   
     </div>  
 
 </body>
